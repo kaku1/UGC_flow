@@ -27,7 +27,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="AF9-XN-KqY" kind="presentation" id="pCM-Z4-1Pa"/>
+                                            <segue destination="9Qd-zc-lqs" kind="presentation" id="ibu-uo-jiO"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -50,10 +50,18 @@
             </objects>
             <point key="canvasLocation" x="259" y="397"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="aAV-jm-6Um">
+            <objects>
+                <pageViewController storyboardIdentifier="PageController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="vertical" spineLocation="none" id="sbk-VW-IK5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gCv-Pc-act" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1591" y="1095"/>
+        </scene>
         <!--Camera View Controller-->
         <scene sceneID="sMc-us-CZg">
             <objects>
-                <viewController id="AF9-XN-KqY" customClass="CameraViewController" customModule="UGC_flow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CameraViewController" id="AF9-XN-KqY" customClass="CameraViewController" customModule="UGC_flow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1gw-wT-Ky7"/>
                         <viewControllerLayoutGuide type="bottom" id="ylP-Kw-imZ"/>
@@ -105,7 +113,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rx3-FP-owr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="909" y="397"/>
+            <point key="canvasLocation" x="1153" y="202"/>
+        </scene>
+        <!--Recommend Parent Controller-->
+        <scene sceneID="EPM-5g-3at">
+            <objects>
+                <viewController storyboardIdentifier="RecommendParentController" id="9Qd-zc-lqs" customClass="RecommendParentController" customModule="UGC_flow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KQh-ps-dRp"/>
+                        <viewControllerLayoutGuide type="bottom" id="68x-vb-D8a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UxR-JD-dvj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ptL-jM-fdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="770" y="1052"/>
         </scene>
     </scenes>
 </document>
