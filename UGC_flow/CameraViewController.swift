@@ -13,6 +13,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
     
+    @IBOutlet weak var next_Button: UIButton!
     lazy var customCameraView: CustomCameraOverlayView = {
         let view = CustomCameraOverlayView.loadFromNib() as! CustomCameraOverlayView
         view.frame = self.view.bounds
@@ -36,6 +37,11 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         openPhoneCamera()
         self.view.bringSubviewToFront(closeButton)
         // Do any additional setup after loading the view.
+        
+//        self.next_Button.layer.cornerRadius = 30
+//        self.next_Button.layer.borderColor = UIColor.whiteColor().CGColor
+//        self.next_Button.layer.borderWidth = 2
+        
     }
     
     //MARK: Action
