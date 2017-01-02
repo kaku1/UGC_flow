@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -49,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="259" y="397"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="sMc-us-CZg">
             <objects>
-                <viewController id="AF9-XN-KqY" sceneMemberID="viewController">
+                <viewController id="AF9-XN-KqY" customClass="CameraViewController" customModule="UGC_flow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1gw-wT-Ky7"/>
                         <viewControllerLayoutGuide type="bottom" id="ylP-Kw-imZ"/>
@@ -67,13 +68,40 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCS-pO-WfP">
+                                <rect key="frame" x="8" y="8" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="4Bt-eY-LVL"/>
+                                    <constraint firstAttribute="height" constant="44" id="TJx-2D-2LS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <state key="normal" title="x">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="AF9-XN-KqY" eventType="touchUpInside" id="umN-kK-W5O"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Bl-Ln-q2Y">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mNe-om-8QZ" firstAttribute="centerY" secondItem="RZL-a1-lT0" secondAttribute="centerY" id="QZb-yb-U81"/>
                             <constraint firstItem="mNe-om-8QZ" firstAttribute="centerX" secondItem="RZL-a1-lT0" secondAttribute="centerX" id="RXI-NX-53z"/>
+                            <constraint firstItem="GCS-pO-WfP" firstAttribute="leading" secondItem="RZL-a1-lT0" secondAttribute="leadingMargin" constant="-12" id="UNr-KX-0BQ"/>
+                            <constraint firstItem="GCS-pO-WfP" firstAttribute="top" secondItem="1gw-wT-Ky7" secondAttribute="bottom" constant="-12" id="Wrd-rR-xwT"/>
+                            <constraint firstAttribute="trailing" secondItem="4Bl-Ln-q2Y" secondAttribute="trailing" id="aB9-HQ-hhV"/>
+                            <constraint firstItem="4Bl-Ln-q2Y" firstAttribute="leading" secondItem="RZL-a1-lT0" secondAttribute="leading" id="dVf-vL-9Kp"/>
+                            <constraint firstItem="ylP-Kw-imZ" firstAttribute="top" secondItem="4Bl-Ln-q2Y" secondAttribute="bottom" id="hNC-d3-25h"/>
+                            <constraint firstItem="4Bl-Ln-q2Y" firstAttribute="top" secondItem="RZL-a1-lT0" secondAttribute="top" id="zpp-21-sth"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="GCS-pO-WfP" id="052-DY-Dhi"/>
+                        <outlet property="previewImageView" destination="4Bl-Ln-q2Y" id="SVk-8b-KjW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rx3-FP-owr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

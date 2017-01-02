@@ -15,6 +15,9 @@
 		A9D64CCF1E1A422A00F67F04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9D64CCD1E1A422A00F67F04 /* LaunchScreen.storyboard */; };
 		A9D64CDA1E1A422A00F67F04 /* UGC_flowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D64CD91E1A422A00F67F04 /* UGC_flowTests.swift */; };
 		A9D64CE51E1A422A00F67F04 /* UGC_flowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D64CE41E1A422A00F67F04 /* UGC_flowUITests.swift */; };
+		F1A3FC191E1A57B80085371B /* CustomCameraOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A3FC181E1A57B80085371B /* CustomCameraOverlayView.swift */; };
+		F1A3FC1B1E1A57C30085371B /* CustomCameraOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A3FC1A1E1A57C30085371B /* CustomCameraOverlayView.xib */; };
+		F1A3FC1D1E1A59590085371B /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A3FC1C1E1A59590085371B /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		A9D64CE01E1A422A00F67F04 /* UGC_flowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UGC_flowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D64CE41E1A422A00F67F04 /* UGC_flowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGC_flowUITests.swift; sourceTree = "<group>"; };
 		A9D64CE61E1A422A00F67F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1A3FC181E1A57B80085371B /* CustomCameraOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCameraOverlayView.swift; sourceTree = "<group>"; };
+		F1A3FC1A1E1A57C30085371B /* CustomCameraOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCameraOverlayView.xib; sourceTree = "<group>"; };
+		F1A3FC1C1E1A59590085371B /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,9 @@
 				A9D64CCD1E1A422A00F67F04 /* LaunchScreen.storyboard */,
 				A9D64CD01E1A422A00F67F04 /* Info.plist */,
 				A9D64CC81E1A422A00F67F04 /* UGC_flow.xcdatamodeld */,
+				F1A3FC181E1A57B80085371B /* CustomCameraOverlayView.swift */,
+				F1A3FC1A1E1A57C30085371B /* CustomCameraOverlayView.xib */,
+				F1A3FC1C1E1A59590085371B /* CameraViewController.swift */,
 			);
 			path = UGC_flow;
 			sourceTree = "<group>";
@@ -233,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9D64CCF1E1A422A00F67F04 /* LaunchScreen.storyboard in Resources */,
+				F1A3FC1B1E1A57C30085371B /* CustomCameraOverlayView.xib in Resources */,
 				A9D64CCC1E1A422A00F67F04 /* Assets.xcassets in Resources */,
 				A9D64CC71E1A422A00F67F04 /* Main.storyboard in Resources */,
 			);
@@ -260,6 +270,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9D64CC41E1A422A00F67F04 /* ViewController.swift in Sources */,
+				F1A3FC1D1E1A59590085371B /* CameraViewController.swift in Sources */,
+				F1A3FC191E1A57B80085371B /* CustomCameraOverlayView.swift in Sources */,
 				A9D64CC21E1A422A00F67F04 /* AppDelegate.swift in Sources */,
 				A9D64CCA1E1A422A00F67F04 /* UGC_flow.xcdatamodeld in Sources */,
 			);
@@ -488,6 +500,7 @@
 				A9D64CEB1E1A422A00F67F04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9D64CEC1E1A422A00F67F04 /* Build configuration list for PBXNativeTarget "UGC_flowTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +509,7 @@
 				A9D64CEE1E1A422A00F67F04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9D64CEF1E1A422A00F67F04 /* Build configuration list for PBXNativeTarget "UGC_flowUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +518,7 @@
 				A9D64CF11E1A422A00F67F04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

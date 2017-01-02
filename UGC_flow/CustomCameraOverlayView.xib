@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomCameraOverlayView" customModule="UGC_flow" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RB-it-1Xa">
+                    <rect key="frame" x="270" y="532" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="AJn-am-nKM"/>
+                        <constraint firstAttribute="height" constant="60" id="gIz-vz-p35"/>
+                    </constraints>
+                    <connections>
+                        <action selector="didTapTakePicButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="m2y-3c-Qeg"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rfq-Ru-zXJ">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="1RB-it-1Xa" secondAttribute="bottom" constant="8" id="0Nz-i0-8GW"/>
+                <constraint firstItem="1RB-it-1Xa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1dx-U4-FeB"/>
+                <constraint firstAttribute="bottom" secondItem="Rfq-Ru-zXJ" secondAttribute="bottom" id="6Xc-3P-lS6"/>
+                <constraint firstAttribute="trailing" secondItem="Rfq-Ru-zXJ" secondAttribute="trailing" id="Mrg-2L-2rz"/>
+                <constraint firstItem="Rfq-Ru-zXJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VOM-KI-pQS"/>
+                <constraint firstItem="Rfq-Ru-zXJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aEz-bX-y8m"/>
+            </constraints>
+            <connections>
+                <outlet property="previewImageView" destination="Rfq-Ru-zXJ" id="2fg-aa-Pqy"/>
+                <outlet property="takePicButton" destination="1RB-it-1Xa" id="iSk-fB-adJ"/>
+            </connections>
+        </view>
+    </objects>
+</document>
