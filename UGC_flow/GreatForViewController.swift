@@ -1,5 +1,5 @@
 //
-//  RecommendPlaceController.swift
+//  GreatForViewController.swift
 //  UGC_flow
 //
 //  Created by Siddhant Saxena on 02/01/17.
@@ -8,33 +8,18 @@
 
 import UIKit
 
-class RecommendPlaceController: UIViewController, UITextViewDelegate {
+class GreatForViewController: UIViewController {
 
-    @IBOutlet weak var greatFor: UITextView!
-    
+    var pageIndex = 2
     override func viewDidLoad() {
         super.viewDidLoad()
-        greatFor.delegate = self
+
         // Do any additional setup after loading the view.
-    }
-    var pageIndex = 1
-    func textViewDidChange(textView: UITextView) { //Handle the text changes here
-        print(textView.text);
-        //textView.text = ""//the textView parameter is the textView where text was changed
-    }
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        textView.text = ""
-        textView.textColor = UIColor.blackColor()
-        return true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-       // self.GreatFor.becomeFirstResponder()
     }
     
 

@@ -44,13 +44,13 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         return contr!
     }()
     
-    
-    lazy var lastViewController: UIViewController = {
-        let contr = UIViewController.init(nibName: nil, bundle: nil)
-        contr.view.backgroundColor = .blueColor()
+    lazy var GreatContr: GreatForViewController = {
+        let ugc = UIStoryboard.init(name: "Main", bundle: nil)
+        let contr = ugc.instantiateViewControllerWithIdentifier("GreatForViewController") as? GreatForViewController
         
-        return contr
+        return contr!
     }()
+
     
     var index = 0
     
@@ -62,15 +62,21 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         self.next_Button.hidden = true;
         self.next_Button.layer.cornerRadius = 30
         self.next_Button.layer.borderColor = UIColor.whiteColor().CGColor
-        self.next_Button.layer.borderWidth = 2
+        self.next_Button.layer.borderWidth = 3
+        
     }
     
     func setCameraView() -> Void {
         self.pagerContr.dataSource = self
         self.pagerContr.delegate = self
         let cameraController = viewControllerAtIndex(0)
-        let viewControllers = [cameraController]
-        pagerContr.setViewControllers(viewControllers, direction: .Forward, animated: true, completion: nil)
+        
+        if let contr = cameraController {
+            let viewControllers = [contr]
+            
+            pagerContr.setViewControllers(viewControllers, direction: .Forward, animated: false, completion: nil)
+        }
+        
         
         // Change the size of page view controller
         pagerContr.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
@@ -83,21 +89,49 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
     //MARK: UIPageViewControllerDelegate, UIPageViewControllerDataSource
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        if index != 2 {
-            index += 1
-            return viewControllerAtIndex(index)
+        var index = 0
+        if true == viewController.isKindOfClass(CameraViewController) {
+            let contr = viewController as! CameraViewController
+            index = contr.pageIndex
+        } else if (true == viewController.isKindOfClass(RecommendPlaceController)) {
+            let contr = viewController as! RecommendPlaceController
+            index = contr.pageIndex
+        } else if (true == viewController.isKindOfClass(GreatForViewController)) {
+            let contr = viewController as! GreatForViewController
+            index = contr.pageIndex
         }
         
-        return nil
+        if (index == NSNotFound) {
+            return nil;
+        }
+        
+        index += 1
+        if (index == 3) {
+            return nil;
+        }
+        
+        return viewControllerAtIndex(index)
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        if index != 0 {
-            index -= 1
-            return viewControllerAtIndex(index)
+        var index = 0
+        if true == viewController.isKindOfClass(CameraViewController) {
+            let contr = viewController as! CameraViewController
+            index = contr.pageIndex
+        } else if (true == viewController.isKindOfClass(RecommendPlaceController)) {
+            let contr = viewController as! RecommendPlaceController
+            index = contr.pageIndex
+        } else if (true == viewController.isKindOfClass(GreatForViewController)) {
+            let contr = viewController as! GreatForViewController
+            index = contr.pageIndex
         }
         
-        return nil
+        if ((index == 0) || (index == NSNotFound)) {
+            return nil
+        }
+        
+        index -= 1
+        return viewControllerAtIndex(index)
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
@@ -114,16 +148,20 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
     
     //MARK: Helpers
     
-    func viewControllerAtIndex(index: Int) -> UIViewController {
+    func viewControllerAtIndex(index: Int) -> UIViewController? {
+        
         if index == 0 {
+            cameraContr.pageIndex = index
             return cameraContr
         } else if index == 1 {
+            placeContr.pageIndex = index
             return placeContr
         } else if index == 2 {
-            return lastViewController
+            GreatContr.pageIndex = index
+            return GreatContr
         }
         
-        return UIViewController.init(nibName: nil, bundle: nil)
+        return nil
     }
 
 }

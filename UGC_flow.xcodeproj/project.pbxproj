@@ -16,6 +16,7 @@
 		A9D64CDA1E1A422A00F67F04 /* UGC_flowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D64CD91E1A422A00F67F04 /* UGC_flowTests.swift */; };
 		A9D64CE51E1A422A00F67F04 /* UGC_flowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D64CE41E1A422A00F67F04 /* UGC_flowUITests.swift */; };
 		A9D64CF71E1A720D00F67F04 /* RecommendPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D64CF61E1A720D00F67F04 /* RecommendPlaceController.swift */; };
+		A9D64CF91E1A8AE300F67F04 /* GreatForViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D64CF81E1A8AE300F67F04 /* GreatForViewController.swift */; };
 		F1A3FC191E1A57B80085371B /* CustomCameraOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A3FC181E1A57B80085371B /* CustomCameraOverlayView.swift */; };
 		F1A3FC1B1E1A57C30085371B /* CustomCameraOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A3FC1A1E1A57C30085371B /* CustomCameraOverlayView.xib */; };
 		F1A3FC1D1E1A59590085371B /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A3FC1C1E1A59590085371B /* CameraViewController.swift */; };
@@ -55,6 +56,7 @@
 		A9D64CE41E1A422A00F67F04 /* UGC_flowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGC_flowUITests.swift; sourceTree = "<group>"; };
 		A9D64CE61E1A422A00F67F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9D64CF61E1A720D00F67F04 /* RecommendPlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendPlaceController.swift; sourceTree = "<group>"; };
+		A9D64CF81E1A8AE300F67F04 /* GreatForViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreatForViewController.swift; sourceTree = "<group>"; };
 		F1A3FC181E1A57B80085371B /* CustomCameraOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCameraOverlayView.swift; sourceTree = "<group>"; };
 		F1A3FC1A1E1A57C30085371B /* CustomCameraOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCameraOverlayView.xib; sourceTree = "<group>"; };
 		F1A3FC1C1E1A59590085371B /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				A9D64CC11E1A422A00F67F04 /* AppDelegate.swift */,
 				A9D64CC31E1A422A00F67F04 /* ViewController.swift */,
 				A9D64CC51E1A422A00F67F04 /* Main.storyboard */,
+				A9D64CF81E1A8AE300F67F04 /* GreatForViewController.swift */,
 				A9D64CF61E1A720D00F67F04 /* RecommendPlaceController.swift */,
 				A9D64CCB1E1A422A00F67F04 /* Assets.xcassets */,
 				A9D64CCD1E1A422A00F67F04 /* LaunchScreen.storyboard */,
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D64CF91E1A8AE300F67F04 /* GreatForViewController.swift in Sources */,
 				A9D64CC41E1A422A00F67F04 /* ViewController.swift in Sources */,
 				F1A3FC1D1E1A59590085371B /* CameraViewController.swift in Sources */,
 				F1A3FC251E1A6A5C0085371B /* RecommendParentController.swift in Sources */,

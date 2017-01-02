@@ -16,6 +16,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
     weak var delegate: CameraViewControllerDelegate?
+    var pageIndex = 0
 //    @IBOutlet weak var next_Button: UIButton!
 //    @IBAction func next_screen(sender: AnyObject) {
 //        
