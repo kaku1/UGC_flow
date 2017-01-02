@@ -7,13 +7,20 @@
 //
 
 import UIKit
-
+protocol CameraViewControllerDelegate:class {
+    func showNextButton()
+    
+}
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CustomCameraOverlayViewDelegate {
 
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
+    weak var delegate: CameraViewControllerDelegate?
+//    @IBOutlet weak var next_Button: UIButton!
+//    @IBAction func next_screen(sender: AnyObject) {
+//        
+//    }
     
-    @IBOutlet weak var next_Button: UIButton!
     lazy var customCameraView: CustomCameraOverlayView = {
         let view = CustomCameraOverlayView.loadFromNib() as! CustomCameraOverlayView
         view.frame = self.view.bounds
@@ -55,6 +62,10 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func takePic(sender: UIButton, view: CustomCameraOverlayView) {
         imagePicker.takePicture()
+        
+        if let delegate = delegate {
+                delegate.showNextButton()
+        }
     }
     
     //MARK: UIImagePickerControllerDelegate

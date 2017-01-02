@@ -8,8 +8,20 @@
 
 import UIKit
 
-class RecommendParentController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+class RecommendParentController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, CameraViewControllerDelegate {
 
+    @IBOutlet weak var next_Button: UIButton!
+    @IBAction func next_screen(sender: AnyObject) {
+        let cameraController = viewControllerAtIndex(1)
+        let viewControllers = [placeContr]
+        pagerContr.setViewControllers(viewControllers,
+                                              direction: UIPageViewControllerNavigationDirection.Forward,
+                                              animated: true,
+                                              completion: nil)
+        print("next called")
+       
+    }
+    
     lazy var pagerContr: UIPageViewController = {
         let ugc = UIStoryboard.init(name: "Main", bundle: nil)
         let contr = ugc.instantiateViewControllerWithIdentifier("PageController") as? UIPageViewController
@@ -21,16 +33,17 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
     lazy var cameraContr: CameraViewController = {
         let ugc = UIStoryboard.init(name: "Main", bundle: nil)
         let contr = ugc.instantiateViewControllerWithIdentifier("CameraViewController") as? CameraViewController
+        contr?.delegate = self
+        return contr!
+    }()
+    
+    lazy var placeContr: RecommendPlaceController = {
+        let ugc = UIStoryboard.init(name: "Main", bundle: nil)
+        let contr = ugc.instantiateViewControllerWithIdentifier("RecommendPlaceController") as? RecommendPlaceController
         
         return contr!
     }()
     
-    lazy var middleViewController: UIViewController = {
-        let contr = UIViewController.init(nibName: nil, bundle: nil)
-        contr.view.backgroundColor = .redColor()
-        
-        return contr
-    }()
     
     lazy var lastViewController: UIViewController = {
         let contr = UIViewController.init(nibName: nil, bundle: nil)
@@ -45,6 +58,11 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         super.viewDidLoad()
         self.view.backgroundColor = .whiteColor()
         setCameraView()
+        self.view.bringSubviewToFront(next_Button)
+        self.next_Button.hidden = true;
+        self.next_Button.layer.cornerRadius = 30
+        self.next_Button.layer.borderColor = UIColor.whiteColor().CGColor
+        self.next_Button.layer.borderWidth = 2
     }
     
     func setCameraView() -> Void {
@@ -90,13 +108,17 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         return 0
     }
     
+    func showNextButton() {
+        self.next_Button.hidden = false;
+    }
+    
     //MARK: Helpers
     
     func viewControllerAtIndex(index: Int) -> UIViewController {
         if index == 0 {
             return cameraContr
         } else if index == 1 {
-            return middleViewController
+            return placeContr
         } else if index == 2 {
             return lastViewController
         }
