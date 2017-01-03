@@ -8,10 +8,14 @@
 
 import UIKit
 
-class RecommendParentController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, CameraViewControllerDelegate, RecommendPlaceControllerDelegate {
+class RecommendParentController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, CameraViewControllerDelegate, RecommendPlaceControllerDelegate, GreatForViewControllerDelegate {
 
     @IBOutlet weak var next_Button: UIButton!
     @IBOutlet weak var nextBottomConsraint: NSLayoutConstraint!
+    
+    var postImage: UIImage?
+    var whereStr: String?
+    var whatStr: String?
     
     var currentIndex = 0
     @IBAction func next_screen(sender: AnyObject) {
@@ -48,7 +52,7 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
     lazy var GreatContr: GreatForViewController = {
         let ugc = UIStoryboard.init(name: "Main", bundle: nil)
         let contr = ugc.instantiateViewControllerWithIdentifier("GreatForViewController") as? GreatForViewController
-        //contr?.delegate = self
+        contr?.delegate = self
         return contr!
     }()
 
@@ -122,7 +126,7 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         }
         
         index += 1
-        if (index == 4) {
+        if (index == 3) {
             return nil;
         }
         
@@ -161,17 +165,37 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         return 0
     }
     
+    func imageClicked(image: UIImage) {
+        postImage = image
+    }
+    
     func showNextButton() {
         self.next_Button.hidden = false;
     }
     
-    func pushNextButton(pageIndex: Int) {
+    func pushNextButton(pageIndex: Int, text: String) {
         print("pushing next")
+        whatStr = text
         let contr = viewControllerAtIndex(pageIndex + 1)
         if let contr = contr {
             pagerContr.setViewControllers([contr], direction: .Forward, animated: true, completion: nil)
         }
     }
+    
+    //MARK: GreatForViewControllerDelegate
+    
+    func postRecommendation(whereStr: String) {
+        self.whereStr = whereStr
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let contr: ViewController = sb.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        contr.view.backgroundColor = .whiteColor()
+        contr.recommendationImage.image = postImage
+        contr.recommendationTitle.text = whatStr
+        contr.recommendationPlace.text = whereStr
+        
+        self.presentViewController(contr, animated: true, completion: nil)
+    }
+    
     //MARK: Helpers
     
     func viewControllerAtIndex(index: Int) -> UIViewController? {

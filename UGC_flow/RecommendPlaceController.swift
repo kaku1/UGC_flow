@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RecommendPlaceControllerDelegate:class {
-    func pushNextButton(pageIndex: Int)
+    func pushNextButton(pageIndex: Int, text: String)
     
 }
 class RecommendPlaceController: UIViewController, UITextViewDelegate {
@@ -55,26 +55,17 @@ class RecommendPlaceController: UIViewController, UITextViewDelegate {
         view.endEditing(true)
         if greatFor.text != "" {
             if let delegate = delegate {
-                delegate.pushNextButton(pageIndex)
+                delegate.pushNextButton(pageIndex, text: greatFor.text)
             }
         }
     }
 
     func textViewDidChange(textView: UITextView) { //Handle the text changes here
         print(textView.text);
-        placeholderLabel.text = ""
-        if textView.text != "" {
-            print("nothing in textview")
-            placeholderLabel.text = ""
-        }
-        //textView.text = ""//the textView parameter is the textView where text was changed
+        placeholderLabel.alpha = (textView.text == "") ? 1 : 0
     }
+    
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-//        placeholderLabel.text = ""
-//        if textView.text != "" {
-//            print("nothing in textview")
-//            placeholderLabel.text = ""
-//        }
         textView.textColor = UIColor.blackColor()
         return true
     }
