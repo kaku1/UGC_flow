@@ -74,6 +74,11 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = true
+    }
+    
     func setCameraView() -> Void {
         self.pagerContr.dataSource = self
         self.pagerContr.delegate = self
@@ -160,14 +165,17 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         self.next_Button.hidden = false;
     }
     
-    func pushNextButton() {
+    func pushNextButton(pageIndex: Int) {
         print("pushing next")
-        self.nextBottomConsraint.constant = 300
+        let contr = viewControllerAtIndex(pageIndex + 1)
+        if let contr = contr {
+            pagerContr.setViewControllers([contr], direction: .Forward, animated: true, completion: nil)
+        }
     }
     //MARK: Helpers
     
     func viewControllerAtIndex(index: Int) -> UIViewController? {
-         print("view controller index")
+         print("view controller index \(index)")
         if index == 0 {
             cameraContr.pageIndex = index
             return cameraContr
