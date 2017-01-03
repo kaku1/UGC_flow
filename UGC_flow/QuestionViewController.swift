@@ -32,7 +32,7 @@ class QuestionViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        textView.text = ""
+//        textView.text = ""
         textView.textColor = UIColor.blackColor()
         return true
     }
