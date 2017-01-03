@@ -17,6 +17,11 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var toolTipButton: UIButton!
+    @IBAction func toolTipButtonAction(sender: AnyObject) {
+        self.toolTipButton.hidden = true;
+    }
+    
     weak var delegate: CameraViewControllerDelegate?
     var pageIndex = 0
 //    @IBOutlet weak var next_Button: UIButton!
@@ -47,6 +52,11 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         openPhoneCamera()
         self.view.bringSubviewToFront(closeButton)
         self.view.bringSubviewToFront(titleLabel)
+        self.view.bringSubviewToFront(toolTipButton)
+        
+        self.toolTipButton.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
+        self.toolTipButton.layer.borderWidth = 0.5
+        self.toolTipButton.layer.cornerRadius = 4
         // Do any additional setup after loading the view.
         
 //        self.next_Button.layer.cornerRadius = 30
@@ -69,6 +79,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         if let delegate = delegate {
                 delegate.showNextButton()
+                self.toolTipButton.hidden = true
         }
     }
     

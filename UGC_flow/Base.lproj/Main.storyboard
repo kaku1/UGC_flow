@@ -26,7 +26,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="vpz-OB-214" kind="presentation" id="Xe6-oA-eq4"/>
+                                            <segue destination="9Qd-zc-lqs" kind="presentation" id="6N6-rz-h66"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="1202"/>
+            <point key="canvasLocation" x="1145" y="1202"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="aAV-jm-6Um">
@@ -137,13 +137,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What did you find?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqS-rg-eaj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What did you find?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqS-rg-eaj">
                                 <rect key="frame" x="20" y="70" width="560" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m9Y-Em-nB1">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m9Y-Em-nB1">
                                 <rect key="frame" x="16" y="110" width="564" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
@@ -155,7 +155,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Dolphin watching from the beach! It’s almost unbelievable to see them so close to to the shore.">
                                         <attributes>
-                                            <color key="NSColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="NSColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="20" name="HelveticaNeue-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="1" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -200,13 +200,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where did you find this?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NN-ek-i8U">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Where did you find this?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NN-ek-i8U">
                                 <rect key="frame" x="20" y="70" width="560" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tug-wY-zeG">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tug-wY-zeG">
                                 <rect key="frame" x="20" y="114" width="560" height="466"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
@@ -351,14 +351,29 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.50166223404255317" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sv1-Ns-pYR">
+                                <rect key="frame" x="10" y="415" width="580" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="BEw-mB-UJ3"/>
+                                </constraints>
+                                <state key="normal" title="Take an image of something that you found">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="toolTipButtonAction:" destination="AF9-XN-KqY" eventType="touchUpInside" id="N4c-8H-UEo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dqC-5h-gst" firstAttribute="centerX" secondItem="GCS-pO-WfP" secondAttribute="centerX" id="0So-y3-uXM"/>
                             <constraint firstItem="rOA-QG-hKF" firstAttribute="centerY" secondItem="GCS-pO-WfP" secondAttribute="centerY" id="9pM-g0-wIp"/>
+                            <constraint firstAttribute="trailing" secondItem="sv1-Ns-pYR" secondAttribute="trailing" constant="10" id="BKp-gq-wSZ"/>
+                            <constraint firstItem="ylP-Kw-imZ" firstAttribute="top" secondItem="sv1-Ns-pYR" secondAttribute="bottom" constant="115" id="EOP-eB-572"/>
                             <constraint firstItem="rOA-QG-hKF" firstAttribute="leading" secondItem="RZL-a1-lT0" secondAttribute="leading" constant="20" id="EP3-wf-gJh"/>
                             <constraint firstItem="mNe-om-8QZ" firstAttribute="centerY" secondItem="RZL-a1-lT0" secondAttribute="centerY" id="QZb-yb-U81"/>
                             <constraint firstItem="mNe-om-8QZ" firstAttribute="centerX" secondItem="RZL-a1-lT0" secondAttribute="centerX" id="RXI-NX-53z"/>
+                            <constraint firstItem="sv1-Ns-pYR" firstAttribute="leading" secondItem="RZL-a1-lT0" secondAttribute="leading" constant="10" id="S01-YQ-vqZ"/>
                             <constraint firstItem="dqC-5h-gst" firstAttribute="centerY" secondItem="GCS-pO-WfP" secondAttribute="centerY" id="SiF-F3-rTb"/>
                             <constraint firstItem="GCS-pO-WfP" firstAttribute="top" secondItem="1gw-wT-Ky7" secondAttribute="bottom" id="Xbo-nd-kGk"/>
                             <constraint firstAttribute="trailing" secondItem="4Bl-Ln-q2Y" secondAttribute="trailing" id="aB9-HQ-hhV"/>
@@ -381,6 +396,7 @@
                         <outlet property="closeButton" destination="GCS-pO-WfP" id="052-DY-Dhi"/>
                         <outlet property="previewImageView" destination="4Bl-Ln-q2Y" id="SVk-8b-KjW"/>
                         <outlet property="titleLabel" destination="rOA-QG-hKF" id="xaB-fG-xQF"/>
+                        <outlet property="toolTipButton" destination="sv1-Ns-pYR" id="Jae-OE-kIX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rx3-FP-owr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -407,9 +423,9 @@
                                     <constraint firstAttribute="width" constant="78" id="RH3-HS-A6g"/>
                                     <constraint firstAttribute="width" constant="60" id="qLS-ju-bdj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title=" NEXT">
-                                    <color key="titleColor" red="0.32549019607843138" green="0.76862745098039209" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -443,24 +459,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptL-jM-fdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1883" y="1202"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="JjI-Bz-pHQ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="vpz-OB-214" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nnq-Fz-24E">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="9Qd-zc-lqs" kind="relationship" relationship="rootViewController" id="9zX-UH-WUy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pbJ-Hd-mgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1071" y="1202"/>
         </scene>
     </scenes>
     <resources>
