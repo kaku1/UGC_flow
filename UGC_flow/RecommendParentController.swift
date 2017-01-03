@@ -8,10 +8,14 @@
 
 import UIKit
 
-class RecommendParentController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, CameraViewControllerDelegate, RecommendPlaceControllerDelegate {
+class RecommendParentController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, CameraViewControllerDelegate, RecommendPlaceControllerDelegate, GreatForViewControllerDelegate {
 
     @IBOutlet weak var next_Button: UIButton!
     @IBOutlet weak var nextBottomConsraint: NSLayoutConstraint!
+    
+    var image: UIImage?
+    var whereStr: String?
+    var whatStr: String?
     
     var currentIndex = 0
     @IBAction func next_screen(sender: AnyObject) {
@@ -122,7 +126,7 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         }
         
         index += 1
-        if (index == 4) {
+        if (index == 3) {
             return nil;
         }
         
@@ -165,13 +169,21 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         self.next_Button.hidden = false;
     }
     
-    func pushNextButton(pageIndex: Int) {
+    func pushNextButton(pageIndex: Int, text: String) {
         print("pushing next")
+        whatStr = text
         let contr = viewControllerAtIndex(pageIndex + 1)
         if let contr = contr {
             pagerContr.setViewControllers([contr], direction: .Forward, animated: true, completion: nil)
         }
     }
+    
+    //MARK: GreatForViewControllerDelegate
+    
+    func postRecommendation(whereStr: String) {
+       self.whereStr = whereStr
+    }
+    
     //MARK: Helpers
     
     func viewControllerAtIndex(index: Int) -> UIViewController? {

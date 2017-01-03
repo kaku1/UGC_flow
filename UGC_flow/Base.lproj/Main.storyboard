@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -200,14 +200,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Where did you find this?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NN-ek-i8U">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where did you find this?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NN-ek-i8U">
                                 <rect key="frame" x="20" y="70" width="560" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="3b7-RT-abs"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tug-wY-zeG">
-                                <rect key="frame" x="20" y="114" width="560" height="466"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tug-wY-zeG">
+                                <rect key="frame" x="20" y="114" width="560" height="430"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Restaurant, Bar, Cafe or Service">
@@ -220,18 +223,35 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3z-pU-bdb">
+                                <rect key="frame" x="20" y="552" width="560" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bfl-Mx-9EU"/>
+                                </constraints>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="didTapPostButton:" destination="jqP-HN-60y" eventType="touchUpInside" id="oq8-KQ-aMB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="p6f-Xo-fvj" firstAttribute="top" secondItem="tug-wY-zeG" secondAttribute="bottom" constant="20" id="2Ta-O5-SlS"/>
                             <constraint firstItem="tug-wY-zeG" firstAttribute="top" secondItem="1NN-ek-i8U" secondAttribute="bottom" constant="8" id="BDF-Ej-Yxz"/>
                             <constraint firstAttribute="trailing" secondItem="tug-wY-zeG" secondAttribute="trailing" constant="20" id="Ffl-C4-oJ2"/>
                             <constraint firstAttribute="trailing" secondItem="1NN-ek-i8U" secondAttribute="trailing" constant="20" id="GJU-dq-aX7"/>
                             <constraint firstItem="tug-wY-zeG" firstAttribute="leading" secondItem="IM2-qB-3S8" secondAttribute="leading" constant="20" id="HdH-p2-Hdu"/>
                             <constraint firstItem="1NN-ek-i8U" firstAttribute="leading" secondItem="IM2-qB-3S8" secondAttribute="leading" constant="20" id="IKM-Le-wKt"/>
                             <constraint firstItem="1NN-ek-i8U" firstAttribute="top" secondItem="BeN-ky-wJM" secondAttribute="bottom" constant="50" id="Jh4-Vy-Lis"/>
+                            <constraint firstItem="q3z-pU-bdb" firstAttribute="leading" secondItem="IM2-qB-3S8" secondAttribute="leading" constant="20" id="PbN-So-0Hy"/>
+                            <constraint firstAttribute="trailing" secondItem="q3z-pU-bdb" secondAttribute="trailing" constant="20" id="S21-ft-aes"/>
+                            <constraint firstItem="q3z-pU-bdb" firstAttribute="top" secondItem="tug-wY-zeG" secondAttribute="bottom" constant="8" id="lyX-5I-QZV"/>
+                            <constraint firstItem="p6f-Xo-fvj" firstAttribute="top" secondItem="q3z-pU-bdb" secondAttribute="bottom" constant="8" id="od0-WQ-lKF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="postButton" destination="q3z-pU-bdb" id="3jQ-FK-uq6"/>
+                        <outlet property="postButtonBottomConstraint" destination="od0-WQ-lKF" id="HAe-df-tMp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avf-wd-cDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RecommendPlaceControllerDelegate:class {
-    func pushNextButton(pageIndex: Int)
+    func pushNextButton(pageIndex: Int, text: String)
     
 }
 class RecommendPlaceController: UIViewController, UITextViewDelegate {
@@ -55,7 +55,7 @@ class RecommendPlaceController: UIViewController, UITextViewDelegate {
         view.endEditing(true)
         if greatFor.text != "" {
             if let delegate = delegate {
-                delegate.pushNextButton(pageIndex)
+                delegate.pushNextButton(pageIndex, text: greatFor.text)
             }
         }
     }
