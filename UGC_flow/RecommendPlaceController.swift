@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RecommendPlaceControllerDelegate:class {
-    func pushNextButton()
+    func pushNextButton(pageIndex: Int)
     
 }
 class RecommendPlaceController: UIViewController, UITextViewDelegate {
@@ -22,7 +22,7 @@ class RecommendPlaceController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         greatFor.delegate = self
-
+        addToolBar()
         
 //keyboard accessory bar
 //        let numberToolbar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.size.width, 50))
@@ -34,10 +34,32 @@ class RecommendPlaceController: UIViewController, UITextViewDelegate {
 //        numberToolbar.sizeToFit()
 //        greatFor.inputAccessoryView = numberToolbar
         
-        
         // Do any additional setup after loading the view.
     }
     var pageIndex = 1
+    
+    func addToolBar() -> Void {
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.Default
+        toolBar.translucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        let doneButton = UIBarButtonItem(title: "NEXT", style: .Done, target: self, action: #selector(RecommendPlaceController.didTapDoneButton(_:)))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        toolBar.setItems([spaceButton, doneButton], animated: false)
+        toolBar.userInteractionEnabled = true
+        toolBar.sizeToFit()
+        greatFor.inputAccessoryView = toolBar
+    }
+    
+    func didTapDoneButton(sender: UIBarButtonItem) {
+        view.endEditing(true)
+        if greatFor.text != "" {
+            if let delegate = delegate {
+                delegate.pushNextButton(pageIndex)
+            }
+        }
+    }
+
     func textViewDidChange(textView: UITextView) { //Handle the text changes here
         print(textView.text);
         placeholderLabel.text = ""
