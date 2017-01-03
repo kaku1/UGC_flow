@@ -8,15 +8,27 @@
 
 import UIKit
 
-class QuestionParentViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+protocol QuestionParentViewControllerDelegate: class {
+    func configireFeature(text: String?, type: Int)
+}
+
+class QuestionParentViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, QuestionViewControllerDelegate {
     
     @IBOutlet weak var closeButton: UIButton!
+    var answer1Text: String?
+    var answer2Text: String?
+    var answer3Text: String?
+    var answer4Text: String?
+
+    weak var delegate: QuestionParentViewControllerDelegate?
+    
     lazy var questionFirstContr: QuestionViewController = {
         let sb = UIStoryboard.init(name: "Question", bundle: nil)
         let contr = sb.instantiateViewControllerWithIdentifier("QuestionViewController") as! QuestionViewController
         contr.view.backgroundColor = .whiteColor()
         contr.questionLabel.text = "Q1. Share your experience"
-        
+        contr.delegate = self
+        contr.answerTextView.text = self.answer1Text
         
         return contr
     }()
@@ -26,6 +38,8 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
         let contr = sb.instantiateViewControllerWithIdentifier("QuestionViewController") as! QuestionViewController
         contr.view.backgroundColor = .whiteColor()
         contr.questionLabel.text = "Q2. Protip"
+        contr.delegate = self
+        contr.answerTextView.text = self.answer2Text
 
         return contr
     }()
@@ -35,6 +49,8 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
         let contr = sb.instantiateViewControllerWithIdentifier("QuestionViewController") as! QuestionViewController
         contr.view.backgroundColor = .whiteColor()
         contr.questionLabel.text = "Q3. Best time to visit"
+        contr.delegate = self
+        contr.answerTextView.text = self.answer3Text
 
         return contr
     }()
@@ -44,6 +60,8 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
         let contr = sb.instantiateViewControllerWithIdentifier("QuestionViewController") as! QuestionViewController
         contr.view.backgroundColor = .whiteColor()
         contr.questionLabel.text = "Q4. Howdy!!"
+        contr.delegate = self
+        contr.answerTextView.text = self.answer4Text
 
         return contr
     }()
@@ -83,6 +101,25 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
     
     @IBAction func didTapCloseButton(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //QuestionViewControllerDelegate
+    
+    func enteredAnswer(text: String, pageIndex: Int, controller: QuestionViewController) {
+        var index = 0
+        if controller == questionFirstContr {
+            index = questionFirstContr.pageIndex
+        } else if controller == questionSecondContr {
+            index = questionSecondContr.pageIndex
+        } else if controller == questionThirdContr {
+            index = questionThirdContr.pageIndex
+        } else if controller == questionFourthContr {
+            index = questionFourthContr.pageIndex
+        }
+        
+        if let delegate = delegate {
+            delegate.configireFeature(text, type: index)
+        }
     }
     
     //MARK: UIPageViewControllerDelegate, UIPageViewControllerDataSource
