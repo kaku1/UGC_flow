@@ -33,6 +33,9 @@ class ViewController: UIViewController, QuestionParentViewControllerDelegate {
         let contr = sb.instantiateViewControllerWithIdentifier("QuestionParentViewController") as! QuestionParentViewController
         contr.initialIndex = 3
         contr.delegate = self
+        contr.answer1Text = answer1Text
+        contr.answer2Text = answer2Text
+        contr.answer3Text = answer3Text
         contr.answer4Text = answer4Text
         self.presentViewController(contr, animated: true, completion: nil)
     }
@@ -41,14 +44,20 @@ class ViewController: UIViewController, QuestionParentViewControllerDelegate {
         let contr = sb.instantiateViewControllerWithIdentifier("QuestionParentViewController") as! QuestionParentViewController
         contr.initialIndex = 2
         contr.delegate = self
+        contr.answer1Text = answer1Text
+        contr.answer2Text = answer2Text
         contr.answer3Text = answer3Text
+        contr.answer4Text = answer4Text
         self.presentViewController(contr, animated: true, completion: nil)
     }
     @IBAction func didTapQuestion2Button(sender: UIButton) {
         let sb = UIStoryboard.init(name: "Question", bundle: nil)
         let contr = sb.instantiateViewControllerWithIdentifier("QuestionParentViewController") as! QuestionParentViewController
         contr.initialIndex = 1
+        contr.answer1Text = answer1Text
         contr.answer2Text = answer2Text
+        contr.answer3Text = answer3Text
+        contr.answer4Text = answer4Text
         contr.delegate = self
         self.presentViewController(contr, animated: true, completion: nil)
     }
@@ -58,6 +67,9 @@ class ViewController: UIViewController, QuestionParentViewControllerDelegate {
         contr.initialIndex = 0
         contr.delegate = self
         contr.answer1Text = answer1Text
+        contr.answer2Text = answer2Text
+        contr.answer3Text = answer3Text
+        contr.answer4Text = answer4Text
         self.presentViewController(contr, animated: true, completion: nil)
     }
     
