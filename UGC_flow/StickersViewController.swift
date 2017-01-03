@@ -22,6 +22,11 @@ class StickersViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func postAndShowFinal(sender: AnyObject) {
+//        let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+//        self.navigationController!.pushViewController(secondViewController, animated: true)
+    }
 
     /*
     // MARK: - Navigation

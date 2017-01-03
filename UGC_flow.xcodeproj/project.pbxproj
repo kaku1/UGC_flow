@@ -133,6 +133,9 @@
 				F1A3FC1C1E1A59590085371B /* CameraViewController.swift */,
 				F1A3FC241E1A6A5C0085371B /* RecommendParentController.swift */,
 				A9C117231E1B7797007BA850 /* StickersViewController.swift */,
+				F1F8A1B71E1B772D001D0E50 /* Question.Storyboard */,
+				F1F8A1B91E1B7858001D0E50 /* QuestionViewController.swift */,
+				F1F8A1BB1E1B795C001D0E50 /* QuestionParentViewController.swift */,
 			);
 			path = UGC_flow;
 			sourceTree = "<group>";

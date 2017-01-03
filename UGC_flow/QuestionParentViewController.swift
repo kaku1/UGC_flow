@@ -59,6 +59,7 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.view.backgroundColor = .whiteColor()
         self.pageController.dataSource = self
         self.pageController.delegate = self
