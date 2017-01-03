@@ -64,15 +64,15 @@ class RecommendPlaceController: UIViewController, UITextViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        let delay = 2 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            self.greatFor.becomeFirstResponder()
-            
-            if let delegate = self.delegate {
-                delegate.pushNextButton()
-            }
-        }
+//        let delay = 2 * Double(NSEC_PER_SEC)
+//        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+//        dispatch_after(time, dispatch_get_main_queue()) {
+//            self.greatFor.becomeFirstResponder()
+//            
+//            if let delegate = self.delegate {
+//                delegate.pushNextButton()
+//            }
+//        }
         
 //        print("accessing parent components")
 //        if let parentVC = self.parentViewController as? RecommendParentController {
