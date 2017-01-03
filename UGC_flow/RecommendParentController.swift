@@ -154,7 +154,7 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 4
+        return 3
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
@@ -185,9 +185,6 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         } else if index == 2 {
             GreatContr.pageIndex = index
             return GreatContr
-        }else if index == 3 {
-            StickerContr.pageIndex = index
-            return StickerContr
         }
         
         return nil
