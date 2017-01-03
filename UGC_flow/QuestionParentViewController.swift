@@ -8,15 +8,27 @@
 
 import UIKit
 
-class QuestionParentViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+protocol QuestionParentViewControllerDelegate: class {
+    func configireFeature(text: String?, type: Int)
+}
+
+class QuestionParentViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, QuestionViewControllerDelegate {
     
     @IBOutlet weak var closeButton: UIButton!
+    var answer1Text: String?
+    var answer2Text: String?
+    var answer3Text: String?
+    var answer4Text: String?
+
+    weak var delegate: QuestionParentViewControllerDelegate?
+    
     lazy var questionFirstContr: QuestionViewController = {
         let sb = UIStoryboard.init(name: "Question", bundle: nil)
         let contr = sb.instantiateViewControllerWithIdentifier("QuestionViewController") as! QuestionViewController
         contr.view.backgroundColor = .whiteColor()
         contr.questionLabel.text = "Q1. Share your experience"
-        
+        contr.delegate = self
+        contr.answerTextView.text = self.answer1Text
         
         return contr
     }()
@@ -26,6 +38,8 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
         let contr = sb.instantiateViewControllerWithIdentifier("QuestionViewController") as! QuestionViewController
         contr.view.backgroundColor = .whiteColor()
         contr.questionLabel.text = "Q2. Protip"
+        contr.delegate = self
+        contr.answerTextView.text = self.answer2Text
 
         return contr
     }()
@@ -35,6 +49,8 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
         let contr = sb.instantiateViewControllerWithIdentifier("QuestionViewController") as! QuestionViewController
         contr.view.backgroundColor = .whiteColor()
         contr.questionLabel.text = "Q3. Best time to visit"
+        contr.delegate = self
+        contr.answerTextView.text = self.answer3Text
 
         return contr
     }()
@@ -44,6 +60,8 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
         let contr = sb.instantiateViewControllerWithIdentifier("QuestionViewController") as! QuestionViewController
         contr.view.backgroundColor = .whiteColor()
         contr.questionLabel.text = "Q4. Howdy!!"
+        contr.delegate = self
+        contr.answerTextView.text = self.answer4Text
 
         return contr
     }()
@@ -83,6 +101,32 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
     
     @IBAction func didTapCloseButton(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //QuestionViewControllerDelegate
+    
+    func enteredAnswer(text: String, pageIndex: Int, controller: QuestionViewController) {
+        var index = 0
+        if controller == questionFirstContr {
+            index = questionFirstContr.pageIndex
+        } else if controller == questionSecondContr {
+            index = questionSecondContr.pageIndex
+        } else if controller == questionThirdContr {
+            index = questionThirdContr.pageIndex
+        } else if controller == questionFourthContr {
+            index = questionFourthContr.pageIndex
+        }
+        
+        if let delegate = delegate {
+            delegate.configireFeature(text, type: index)
+        }
+        
+        if index < 3 {
+            let contr = viewControllerAtIndex(index + 1)
+            if let contr = contr {
+                pageController.setViewControllers([contr], direction: .Forward, animated: true, completion: nil)
+            }
+        }
     }
     
     //MARK: UIPageViewControllerDelegate, UIPageViewControllerDataSource
@@ -144,15 +188,19 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
     func viewControllerAtIndex(index: Int) -> UIViewController? {
         if index == 0 {
             questionFirstContr.pageIndex = index
+            questionFirstContr.doneButton?.title = "Next"
             return questionFirstContr
         } else if index == 1 {
             questionSecondContr.pageIndex = index
+            questionSecondContr.doneButton?.title = "Next"
             return questionSecondContr
         } else if index == 2 {
             questionThirdContr.pageIndex = index
+            questionThirdContr.doneButton?.title = "Next"
             return questionThirdContr
         } else if index == 3 {
             questionFourthContr.pageIndex = index
+            questionFourthContr.doneButton?.title = "Done"
             return questionFourthContr
         }
         
