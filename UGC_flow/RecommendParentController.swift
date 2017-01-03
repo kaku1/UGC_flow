@@ -8,13 +8,14 @@
 
 import UIKit
 
-class RecommendParentController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, CameraViewControllerDelegate {
+class RecommendParentController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, CameraViewControllerDelegate, RecommendPlaceControllerDelegate {
 
     @IBOutlet weak var next_Button: UIButton!
+    @IBOutlet weak var nextBottomConsraint: NSLayoutConstraint!
+    
+    var currentIndex = 0
     @IBAction func next_screen(sender: AnyObject) {
-        let cameraController = viewControllerAtIndex(1)
-        let viewControllers = [placeContr]
-        pagerContr.setViewControllers(viewControllers,
+                                            pagerContr.setViewControllers([viewControllerAtIndex(1)!],
                                               direction: UIPageViewControllerNavigationDirection.Forward,
                                               animated: true,
                                               completion: nil)
@@ -40,14 +41,14 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
     lazy var placeContr: RecommendPlaceController = {
         let ugc = UIStoryboard.init(name: "Main", bundle: nil)
         let contr = ugc.instantiateViewControllerWithIdentifier("RecommendPlaceController") as? RecommendPlaceController
-        
+        contr?.delegate = self
         return contr!
     }()
     // third controller
     lazy var GreatContr: GreatForViewController = {
         let ugc = UIStoryboard.init(name: "Main", bundle: nil)
         let contr = ugc.instantiateViewControllerWithIdentifier("GreatForViewController") as? GreatForViewController
-        
+        //contr?.delegate = self
         return contr!
     }()
 
@@ -66,9 +67,10 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         setCameraView()
         self.view.bringSubviewToFront(next_Button)
         self.next_Button.hidden = true;
-        self.next_Button.layer.cornerRadius = 30
-        self.next_Button.layer.borderColor = UIColor.whiteColor().CGColor
-        self.next_Button.layer.borderWidth = 3
+        //self.next_Button.layer.cornerRadius = 30
+        //self.next_Button.layer.borderColor = UIColor.whiteColor().CGColor
+        //self.next_Button.layer.borderWidth = 3
+        self.next_Button.backgroundColor = UIColor.clearColor()
         
     }
     
@@ -158,10 +160,14 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         self.next_Button.hidden = false;
     }
     
+    func pushNextButton() {
+        print("pushing next")
+        self.nextBottomConsraint.constant = 300
+    }
     //MARK: Helpers
     
     func viewControllerAtIndex(index: Int) -> UIViewController? {
-        
+         print("view controller index")
         if index == 0 {
             cameraContr.pageIndex = index
             return cameraContr

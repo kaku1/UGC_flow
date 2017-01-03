@@ -15,6 +15,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     weak var delegate: CameraViewControllerDelegate?
     var pageIndex = 0
 //    @IBOutlet weak var next_Button: UIButton!
@@ -44,6 +46,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         openPhoneCamera()
         self.view.bringSubviewToFront(closeButton)
+        self.view.bringSubviewToFront(titleLabel)
         // Do any additional setup after loading the view.
         
 //        self.next_Button.layer.cornerRadius = 30
