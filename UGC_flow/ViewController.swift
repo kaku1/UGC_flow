@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, QuestionParentViewControllerDelegate {
     
+    @IBOutlet weak var bestTimeBoxImageView: UIImageView!
+    @IBOutlet weak var protipBoxImageView: UIImageView!
+    @IBOutlet weak var mustEatBoxImageView: UIImageView!
+    @IBOutlet weak var mustDrinkBoxImageView: UIImageView!
     
     @IBOutlet weak var recommendationImage: UIImageView!
     @IBOutlet weak var recommendationTitle: UILabel!
@@ -78,12 +82,16 @@ class ViewController: UIViewController, QuestionParentViewControllerDelegate {
     func configireFeature(text: String?, type: Int) {
         if type == 0 {
             answer1Text = text
+            protipBoxImageView.image = text == "" ? UIImage.init(named: "check box 1") : UIImage.init(named: "check box 2")
         } else if type == 1 {
             answer2Text = text
+            mustEatBoxImageView.image = text == "" ? UIImage.init(named: "check box 1") : UIImage.init(named: "check box 2")
         } else if type == 2 {
             answer3Text = text
+            bestTimeBoxImageView.image = text == "" ? UIImage.init(named: "check box 1") : UIImage.init(named: "check box 2")
         } else if type == 3 {
             answer4Text = text
+            mustDrinkBoxImageView.image = text == "" ? UIImage.init(named: "check box 1") : UIImage.init(named: "check box 2")
         }
     }
 }
