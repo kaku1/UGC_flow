@@ -12,7 +12,7 @@ protocol GreatForViewControllerDelegate: class {
     func postRecommendation(whereStr: String)
 }
 
-class GreatForViewController: UIViewController {
+class GreatForViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var postButtonBottomConstraint: NSLayoutConstraint!
@@ -24,9 +24,16 @@ class GreatForViewController: UIViewController {
         return gest
     }()
 
+    @IBOutlet weak var placeholderTextPlace: UILabel!
+    @IBOutlet weak var placeText: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        placeText.delegate = self
+        
         addNotification()
+
+        // Do any additional setup after loading the view.
     }
     
     deinit {
@@ -40,6 +47,13 @@ class GreatForViewController: UIViewController {
 
     func didTapView(recognizer: UIGestureRecognizer) -> Void {
         self.view.endEditing(true)
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        placeholderTextPlace.alpha = (textView.text == "") ? 1 : 0
+    }
+    func textViewDidBeginEditing(textView: UITextView) {
+        
     }
 
     @IBAction func didTapPostButton(sender: UIButton) {

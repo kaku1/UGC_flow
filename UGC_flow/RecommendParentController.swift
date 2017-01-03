@@ -13,7 +13,7 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
     @IBOutlet weak var next_Button: UIButton!
     @IBOutlet weak var nextBottomConsraint: NSLayoutConstraint!
     
-    var image: UIImage?
+    var postImage: UIImage?
     var whereStr: String?
     var whatStr: String?
     
@@ -52,7 +52,7 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
     lazy var GreatContr: GreatForViewController = {
         let ugc = UIStoryboard.init(name: "Main", bundle: nil)
         let contr = ugc.instantiateViewControllerWithIdentifier("GreatForViewController") as? GreatForViewController
-        //contr?.delegate = self
+        contr?.delegate = self
         return contr!
     }()
 
@@ -165,6 +165,10 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         return 0
     }
     
+    func imageClicked(image: UIImage) {
+        postImage = image
+    }
+    
     func showNextButton() {
         self.next_Button.hidden = false;
     }
@@ -181,7 +185,15 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
     //MARK: GreatForViewControllerDelegate
     
     func postRecommendation(whereStr: String) {
-       self.whereStr = whereStr
+        self.whereStr = whereStr
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let contr: ViewController = sb.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        contr.view.backgroundColor = .whiteColor()
+        contr.recommendationImage.image = postImage
+        contr.recommendationTitle.text = whatStr
+        contr.recommendationPlace.text = whereStr
+        
+        self.presentViewController(contr, animated: true, completion: nil)
     }
     
     //MARK: Helpers

@@ -9,6 +9,7 @@
 import UIKit
 protocol CameraViewControllerDelegate:class {
     func showNextButton()
+    func imageClicked(image: UIImage)
     
 }
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CustomCameraOverlayViewDelegate {
@@ -103,6 +104,9 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage //2
         }
         
+        if let delegate = delegate {
+            delegate.imageClicked(chosenImage!)
+        }
         previewImageView.contentMode = .ScaleAspectFill
         previewImageView.image = chosenImage
 //        cameraView.configureWithImage(chosenImage)
