@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9C117241E1B7797007BA850 /* StickersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C117231E1B7797007BA850 /* StickersViewController.swift */; };
 		A9D64CC21E1A422A00F67F04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D64CC11E1A422A00F67F04 /* AppDelegate.swift */; };
 		A9D64CC41E1A422A00F67F04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D64CC31E1A422A00F67F04 /* ViewController.swift */; };
 		A9D64CC71E1A422A00F67F04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9D64CC51E1A422A00F67F04 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A9C117231E1B7797007BA850 /* StickersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickersViewController.swift; sourceTree = "<group>"; };
 		A9D64CBE1E1A422A00F67F04 /* UGC_flow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UGC_flow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D64CC11E1A422A00F67F04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9D64CC31E1A422A00F67F04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				F1A3FC1A1E1A57C30085371B /* CustomCameraOverlayView.xib */,
 				F1A3FC1C1E1A59590085371B /* CameraViewController.swift */,
 				F1A3FC241E1A6A5C0085371B /* RecommendParentController.swift */,
+				A9C117231E1B7797007BA850 /* StickersViewController.swift */,
 			);
 			path = UGC_flow;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				F1A3FC191E1A57B80085371B /* CustomCameraOverlayView.swift in Sources */,
 				A9D64CF71E1A720D00F67F04 /* RecommendPlaceController.swift in Sources */,
 				A9D64CC21E1A422A00F67F04 /* AppDelegate.swift in Sources */,
+				A9C117241E1B7797007BA850 /* StickersViewController.swift in Sources */,
 				A9D64CCA1E1A422A00F67F04 /* UGC_flow.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

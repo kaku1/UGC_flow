@@ -29,21 +29,21 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
 
         return contr!
     }()
-    
+    //first controller
     lazy var cameraContr: CameraViewController = {
         let ugc = UIStoryboard.init(name: "Main", bundle: nil)
         let contr = ugc.instantiateViewControllerWithIdentifier("CameraViewController") as? CameraViewController
         contr?.delegate = self
         return contr!
     }()
-    
+    //second controller
     lazy var placeContr: RecommendPlaceController = {
         let ugc = UIStoryboard.init(name: "Main", bundle: nil)
         let contr = ugc.instantiateViewControllerWithIdentifier("RecommendPlaceController") as? RecommendPlaceController
         
         return contr!
     }()
-    
+    // third controller
     lazy var GreatContr: GreatForViewController = {
         let ugc = UIStoryboard.init(name: "Main", bundle: nil)
         let contr = ugc.instantiateViewControllerWithIdentifier("GreatForViewController") as? GreatForViewController
@@ -51,6 +51,12 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         return contr!
     }()
 
+    lazy var StickerContr: StickersViewController = {
+        let ugc = UIStoryboard.init(name: "Main", bundle: nil)
+        let contr = ugc.instantiateViewControllerWithIdentifier("StickersViewController") as? StickersViewController
+        
+        return contr!
+    }()
     
     var index = 0
     
@@ -99,6 +105,9 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         } else if (true == viewController.isKindOfClass(GreatForViewController)) {
             let contr = viewController as! GreatForViewController
             index = contr.pageIndex
+        } else if (true == viewController.isKindOfClass(StickersViewController)) {
+            let contr = viewController as! StickersViewController
+            index = contr.pageIndex
         }
         
         if (index == NSNotFound) {
@@ -106,7 +115,7 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         }
         
         index += 1
-        if (index == 3) {
+        if (index == 4) {
             return nil;
         }
         
@@ -124,6 +133,9 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         } else if (true == viewController.isKindOfClass(GreatForViewController)) {
             let contr = viewController as! GreatForViewController
             index = contr.pageIndex
+        } else if (true == viewController.isKindOfClass(StickersViewController)) {
+            let contr = viewController as! StickersViewController
+            index = contr.pageIndex
         }
         
         if ((index == 0) || (index == NSNotFound)) {
@@ -135,7 +147,7 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 3
+        return 4
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
@@ -159,6 +171,9 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         } else if index == 2 {
             GreatContr.pageIndex = index
             return GreatContr
+        }else if index == 3 {
+            StickerContr.pageIndex = index
+            return StickerContr
         }
         
         return nil
