@@ -21,6 +21,9 @@
 		F1A3FC1B1E1A57C30085371B /* CustomCameraOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A3FC1A1E1A57C30085371B /* CustomCameraOverlayView.xib */; };
 		F1A3FC1D1E1A59590085371B /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A3FC1C1E1A59590085371B /* CameraViewController.swift */; };
 		F1A3FC251E1A6A5C0085371B /* RecommendParentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A3FC241E1A6A5C0085371B /* RecommendParentController.swift */; };
+		F1F8A1B81E1B772D001D0E50 /* Question.Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F8A1B71E1B772D001D0E50 /* Question.Storyboard */; };
+		F1F8A1BA1E1B7858001D0E50 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8A1B91E1B7858001D0E50 /* QuestionViewController.swift */; };
+		F1F8A1BC1E1B795C001D0E50 /* QuestionParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8A1BB1E1B795C001D0E50 /* QuestionParentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		F1A3FC1A1E1A57C30085371B /* CustomCameraOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCameraOverlayView.xib; sourceTree = "<group>"; };
 		F1A3FC1C1E1A59590085371B /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		F1A3FC241E1A6A5C0085371B /* RecommendParentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendParentController.swift; sourceTree = "<group>"; };
+		F1F8A1B71E1B772D001D0E50 /* Question.Storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Question.Storyboard; sourceTree = "<group>"; };
+		F1F8A1B91E1B7858001D0E50 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		F1F8A1BB1E1B795C001D0E50 /* QuestionParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionParentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,9 @@
 				F1A3FC1A1E1A57C30085371B /* CustomCameraOverlayView.xib */,
 				F1A3FC1C1E1A59590085371B /* CameraViewController.swift */,
 				F1A3FC241E1A6A5C0085371B /* RecommendParentController.swift */,
+				F1F8A1B71E1B772D001D0E50 /* Question.Storyboard */,
+				F1F8A1B91E1B7858001D0E50 /* QuestionViewController.swift */,
+				F1F8A1BB1E1B795C001D0E50 /* QuestionParentViewController.swift */,
 			);
 			path = UGC_flow;
 			sourceTree = "<group>";
@@ -252,6 +261,7 @@
 			files = (
 				A9D64CCF1E1A422A00F67F04 /* LaunchScreen.storyboard in Resources */,
 				F1A3FC1B1E1A57C30085371B /* CustomCameraOverlayView.xib in Resources */,
+				F1F8A1B81E1B772D001D0E50 /* Question.Storyboard in Resources */,
 				A9D64CCC1E1A422A00F67F04 /* Assets.xcassets in Resources */,
 				A9D64CC71E1A422A00F67F04 /* Main.storyboard in Resources */,
 			);
@@ -284,8 +294,10 @@
 				F1A3FC251E1A6A5C0085371B /* RecommendParentController.swift in Sources */,
 				F1A3FC191E1A57B80085371B /* CustomCameraOverlayView.swift in Sources */,
 				A9D64CF71E1A720D00F67F04 /* RecommendPlaceController.swift in Sources */,
+				F1F8A1BC1E1B795C001D0E50 /* QuestionParentViewController.swift in Sources */,
 				A9D64CC21E1A422A00F67F04 /* AppDelegate.swift in Sources */,
 				A9D64CCA1E1A422A00F67F04 /* UGC_flow.xcdatamodeld in Sources */,
+				F1F8A1BA1E1B7858001D0E50 /* QuestionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
