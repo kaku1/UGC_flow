@@ -52,10 +52,8 @@ class QuestionViewController: UIViewController, UITextViewDelegate {
     
     func didTapDoneButton(sender: UIBarButtonItem) {
         view.endEditing(true)
-        if answerTextView.text != "" {
-            if let delegate = delegate {
-                delegate.enteredAnswer(answerTextView.text, pageIndex: pageIndex, controller: self)
-            }
+        if let delegate = delegate {
+            delegate.enteredAnswer(answerTextView.text, pageIndex: pageIndex, controller: self)
         }
     }
 
