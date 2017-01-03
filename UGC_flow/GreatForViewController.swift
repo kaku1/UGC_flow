@@ -8,12 +8,17 @@
 
 import UIKit
 
-class GreatForViewController: UIViewController {
+class GreatForViewController: UIViewController, UITextViewDelegate {
 
+    
+    @IBOutlet weak var placeholderTextPlace: UILabel!
+    @IBOutlet weak var placeText: UITextView!
+    
     var pageIndex = 2
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        placeText.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -22,7 +27,12 @@ class GreatForViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func textViewDidChange(textView: UITextView) {
+        placeholderTextPlace.text = ""
+    }
+    func textViewDidBeginEditing(textView: UITextView) {
+        
+    }
     /*
     // MARK: - Navigation
 

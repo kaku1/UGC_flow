@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    @IBOutlet weak var recommendationImage: UIImageView!
+    @IBOutlet weak var recommendationTitle: UILabel!
+    @IBOutlet weak var recommendationPlace: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
