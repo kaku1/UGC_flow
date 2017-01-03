@@ -92,6 +92,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage //2
         }
         
+        previewImageView.contentMode = .ScaleAspectFill
         previewImageView.image = chosenImage
 //        cameraView.configureWithImage(chosenImage)
         print("image data non compressed \(UIImageJPEGRepresentation(chosenImage!, 1)?.length)")
@@ -127,10 +128,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         let cameraHeight = screenSize.width * ratio
         let scale: CGFloat = screenSize.height / cameraHeight
         imagePicker.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenSize.height - cameraHeight) / 2.0)
-        imagePicker.cameraViewTransform = CGAffineTransformScale(imagePicker.cameraViewTransform, 1, scale);
-        
-
-        
+        imagePicker.cameraViewTransform = CGAffineTransformScale(imagePicker.cameraViewTransform, scale, scale);
+                
         imagePicker.toolbarHidden = true
         imagePicker.navigationBarHidden = true
         self.view.addSubview(imagePicker.view)
