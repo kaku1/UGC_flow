@@ -119,9 +119,14 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         
 //        customCameraView.frame = (imagePicker.cameraOverlayView?.frame)!
         imagePicker.cameraOverlayView = customCameraView
-        let screenBounds: CGSize = UIScreen.mainScreen().bounds.size;
-        let scale = screenBounds.height / screenBounds.width;
-        imagePicker.cameraViewTransform = CGAffineTransformScale(imagePicker.cameraViewTransform, scale, scale);
+        let screenSize = UIScreen.mainScreen().bounds.size
+        let ratio: CGFloat = 4.0 / 3.0
+        let cameraHeight = screenSize.width * ratio
+        let scale: CGFloat = screenSize.height / cameraHeight
+        imagePicker.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenSize.height - cameraHeight) / 2.0)
+        imagePicker.cameraViewTransform = CGAffineTransformScale(imagePicker.cameraViewTransform, 1, scale);
+        
+
         
         imagePicker.toolbarHidden = true
         imagePicker.navigationBarHidden = true

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Question View Controller-->
+        <scene sceneID="IvR-8y-hAP">
+            <objects>
+                <viewController storyboardIdentifier="QuestionViewController" id="XsV-wu-dbm" customClass="QuestionViewController" customModule="UGC_flow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7kn-SB-HZM"/>
+                        <viewControllerLayoutGuide type="bottom" id="nq6-cK-X7A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6E6-l5-rBx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqP-yD-j15">
+                                <rect key="frame" x="20" y="70" width="560" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="2HC-fQ-eQx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KJe-MJ-Nzi">
+                                <rect key="frame" x="20" y="114" width="560" height="466"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Dolphin watching from the beach! It’s almost unbelievable to see them so close to to the shore.">
+                                        <attributes>
+                                            <color key="NSColor" red="0.59216000000000002" green="0.59216000000000002" blue="0.59216000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="1" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="28">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="left" location="56">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="left" location="84">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="left" location="112">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="left" location="140">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="left" location="168">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="left" location="196">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="left" location="224">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="left" location="252">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="left" location="280">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="left" location="308">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="left" location="336">
+                                                        <options/>
+                                                    </textTab>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="KJe-MJ-Nzi" secondAttribute="trailing" id="CBX-mo-fRZ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="KJe-MJ-Nzi" secondAttribute="leading" id="QOy-bT-XKS"/>
+                            <constraint firstAttribute="trailing" secondItem="PqP-yD-j15" secondAttribute="trailing" constant="20" id="Vr9-qW-Dbw"/>
+                            <constraint firstItem="PqP-yD-j15" firstAttribute="leading" secondItem="6E6-l5-rBx" secondAttribute="leading" constant="20" id="Xbo-T3-PBq"/>
+                            <constraint firstItem="PqP-yD-j15" firstAttribute="top" secondItem="7kn-SB-HZM" secondAttribute="bottom" constant="50" id="dIg-CS-i0t"/>
+                            <constraint firstItem="nq6-cK-X7A" firstAttribute="top" secondItem="KJe-MJ-Nzi" secondAttribute="bottom" constant="20" id="tvd-T6-1et"/>
+                            <constraint firstItem="KJe-MJ-Nzi" firstAttribute="top" secondItem="PqP-yD-j15" secondAttribute="bottom" constant="8" id="xsZ-cV-SnN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="answerTextView" destination="KJe-MJ-Nzi" id="QMe-Z3-c4Q"/>
+                        <outlet property="questionLabel" destination="PqP-yD-j15" id="2j1-Py-aLS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o1y-ZG-mrS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="585" y="370"/>
+        </scene>
+        <!--Question Parent View Controller-->
+        <scene sceneID="YIW-6o-Ypi">
+            <objects>
+                <viewController storyboardIdentifier="QuestionParentViewController" id="r43-Rq-6cC" customClass="QuestionParentViewController" customModule="UGC_flow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6ah-Gb-GC0"/>
+                        <viewControllerLayoutGuide type="bottom" id="YDT-LD-O9L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oSl-Rr-Z2P">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8A-O2-bqe">
+                                <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="elO-r7-eio"/>
+                                    <constraint firstAttribute="height" constant="40" id="qIo-UY-keq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="r43-Rq-6cC" eventType="touchUpInside" id="0gP-Ft-FPW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="K8A-O2-bqe" firstAttribute="top" secondItem="6ah-Gb-GC0" secondAttribute="bottom" constant="-10" id="ACv-ko-Iae"/>
+                            <constraint firstItem="K8A-O2-bqe" firstAttribute="leading" secondItem="oSl-Rr-Z2P" secondAttribute="leadingMargin" constant="-10" id="cw9-uv-4Aa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="K8A-O2-bqe" id="bGj-GR-lo0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="91u-60-FcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="945" y="193"/>
+        </scene>
+    </scenes>
+</document>
