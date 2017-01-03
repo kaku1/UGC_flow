@@ -58,10 +58,12 @@ class GreatForViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func didTapPostButton(sender: UIButton) {
         self.view.endEditing(true)
-        
-        if let delegate = delegate {
-            delegate.postRecommendation("hello")
+        if placeText.text != "" {
+            if let delegate = delegate {
+                delegate.postRecommendation(placeText.text)
+            }
         }
+       
     }
     
     //MARK: Keyboard Notification
