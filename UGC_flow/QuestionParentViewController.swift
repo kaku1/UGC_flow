@@ -120,6 +120,13 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
         if let delegate = delegate {
             delegate.configireFeature(text, type: index)
         }
+        
+        if index < 3 {
+            let contr = viewControllerAtIndex(index + 1)
+            if let contr = contr {
+                pageController.setViewControllers([contr], direction: .Forward, animated: true, completion: nil)
+            }
+        }
     }
     
     //MARK: UIPageViewControllerDelegate, UIPageViewControllerDataSource
@@ -181,15 +188,19 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
     func viewControllerAtIndex(index: Int) -> UIViewController? {
         if index == 0 {
             questionFirstContr.pageIndex = index
+            questionFirstContr.doneButton?.title = "Next"
             return questionFirstContr
         } else if index == 1 {
             questionSecondContr.pageIndex = index
+            questionSecondContr.doneButton?.title = "Next"
             return questionSecondContr
         } else if index == 2 {
             questionThirdContr.pageIndex = index
+            questionThirdContr.doneButton?.title = "Next"
             return questionThirdContr
         } else if index == 3 {
             questionFourthContr.pageIndex = index
+            questionFourthContr.doneButton?.title = "Done"
             return questionFourthContr
         }
         
