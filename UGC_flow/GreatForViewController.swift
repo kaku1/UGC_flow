@@ -58,6 +58,8 @@ class GreatForViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func didTapPostButton(sender: UIButton) {
         self.view.endEditing(true)
+        
+        
         if placeText.text != "" {
             if let delegate = delegate {
                 delegate.postRecommendation(placeText.text)
