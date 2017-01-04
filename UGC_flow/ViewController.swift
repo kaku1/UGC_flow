@@ -82,16 +82,16 @@ class ViewController: UIViewController, QuestionParentViewControllerDelegate {
     func configireFeature(text: String?, type: Int) {
         if type == 0 {
             answer1Text = text
-            protipBoxImageView.image = text == "" ? UIImage.init(named: "check box 1") : UIImage.init(named: "check box 2")
+            protipBoxImageView.image = text == "" ? UIImage.init(named: "subtract box") : UIImage.init(named: "check box 2")
         } else if type == 1 {
             answer2Text = text
-            mustEatBoxImageView.image = text == "" ? UIImage.init(named: "check box 1") : UIImage.init(named: "check box 2")
+            mustEatBoxImageView.image = text == "" ? UIImage.init(named: "subtract box") : UIImage.init(named: "check box 2")
         } else if type == 2 {
             answer3Text = text
-            bestTimeBoxImageView.image = text == "" ? UIImage.init(named: "check box 1") : UIImage.init(named: "check box 2")
+            bestTimeBoxImageView.image = text == "" ? UIImage.init(named: "subtract box") : UIImage.init(named: "check box 2")
         } else if type == 3 {
             answer4Text = text
-            mustDrinkBoxImageView.image = text == "" ? UIImage.init(named: "check box 1") : UIImage.init(named: "check box 2")
+            mustDrinkBoxImageView.image = text == "" ? UIImage.init(named: "subtract box") : UIImage.init(named: "check box 2")
         }
     }
 }
