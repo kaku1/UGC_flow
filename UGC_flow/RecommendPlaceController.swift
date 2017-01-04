@@ -22,6 +22,8 @@ class RecommendPlaceController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         greatFor.delegate = self
+//        greatFor.backgroundColor = .orangeColor()
+//        placeholderLabel.backgroundColor = .yellowColor()
         addToolBar()
         
 //keyboard accessory bar
