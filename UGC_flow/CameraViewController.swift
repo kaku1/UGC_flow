@@ -8,12 +8,13 @@
 
 import UIKit
 protocol CameraViewControllerDelegate:class {
-    func showNextButton()
+    func goToNextPage(pageIndex: Int)
     func imageClicked(image: UIImage)
     
 }
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CustomCameraOverlayViewDelegate {
 
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -58,6 +59,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.toolTipButton.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
         self.toolTipButton.layer.borderWidth = 0.5
         self.toolTipButton.layer.cornerRadius = 4
+        nextButton.alpha = 0
+        self.view.bringSubviewToFront(nextButton)
         // Do any additional setup after loading the view.
         
 //        self.next_Button.layer.cornerRadius = 30
@@ -72,16 +75,16 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func didTapNextButton(sender: UIButton) {
+        if let delegate = delegate {
+            delegate.goToNextPage(pageIndex + 1)
+        }
+    }
     
     //MARK: CustomCameraOverlayViewDelegate
     
     func takePic(sender: UIButton, view: CustomCameraOverlayView) {
         imagePicker.takePicture()
-        
-        if let delegate = delegate {
-                delegate.showNextButton()
-                self.toolTipButton.hidden = true
-        }
     }
     
     //MARK: UIImagePickerControllerDelegate
@@ -107,6 +110,9 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         if let delegate = delegate {
             delegate.imageClicked(chosenImage!)
         }
+        
+        self.toolTipButton.hidden = true
+        nextButton.alpha = 1
         previewImageView.contentMode = .ScaleAspectFill
         previewImageView.image = chosenImage
 //        cameraView.configureWithImage(chosenImage)

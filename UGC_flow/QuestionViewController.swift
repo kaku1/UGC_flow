@@ -18,22 +18,25 @@ class QuestionViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var answerTextView: UITextView!
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var placeholderLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         answerTextView.delegate = self
         addToolBar()
+        placeholderLabel.alpha = (answerTextView.text == "") ? 1 : 0
     }
     
     var pageIndex = 0
     var doneButton: UIBarButtonItem?
     func textViewDidChange(textView: UITextView) { //Handle the text changes here
-        print(textView.text);
+        placeholderLabel.alpha = (textView.text == "") ? 1 : 0
     }
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
 //        textView.text = ""
         textView.textColor = UIColor.blackColor()
+        placeholderLabel.alpha = (textView.text == "") ? 1 : 0
         return true
     }
     
