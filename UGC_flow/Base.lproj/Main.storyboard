@@ -644,9 +644,9 @@
                                     <constraint firstAttribute="width" constant="80" id="PxP-8x-cOX"/>
                                     <constraint firstAttribute="height" constant="40" id="XAs-OZ-Mz7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="NEXT">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.69580765845070425" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapNextButton:" destination="AF9-XN-KqY" eventType="touchUpInside" id="QyK-6J-Ro1"/>
