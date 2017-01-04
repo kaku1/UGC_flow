@@ -77,7 +77,7 @@ class GreatForViewController: UIViewController, UITextViewDelegate {
         let options = UIViewAnimationOptions(rawValue: UInt((userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).integerValue << 16))
         
         UIView.animateWithDuration(duration, delay: 0, options: options, animations: {
-            self.postButtonBottomConstraint.constant = keyboardFrame.height + 8
+            self.postButtonBottomConstraint.constant = keyboardFrame.height
         }) { (isSucceed) in
             self.view.addGestureRecognizer(self.panGesture)
             self.view.userInteractionEnabled = true
@@ -90,7 +90,7 @@ class GreatForViewController: UIViewController, UITextViewDelegate {
         //        if let obj = notification.object {
         //            print("obj \(obj)")
         self.view.removeGestureRecognizer(self.panGesture)
-        self.postButtonBottomConstraint.constant = 8
+        self.postButtonBottomConstraint.constant = 0
         self.view.layoutIfNeeded()
         //        }
     }

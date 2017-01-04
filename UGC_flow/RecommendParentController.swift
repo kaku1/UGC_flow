@@ -9,23 +9,12 @@
 import UIKit
 
 class RecommendParentController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, CameraViewControllerDelegate, RecommendPlaceControllerDelegate, GreatForViewControllerDelegate {
-
-    @IBOutlet weak var next_Button: UIButton!
-    @IBOutlet weak var nextBottomConsraint: NSLayoutConstraint!
     
     var postImage: UIImage?
     var whereStr: String?
     var whatStr: String?
     
     var currentIndex = 0
-    @IBAction func next_screen(sender: AnyObject) {
-                                            pagerContr.setViewControllers([viewControllerAtIndex(1)!],
-                                              direction: UIPageViewControllerNavigationDirection.Forward,
-                                              animated: true,
-                                              completion: nil)
-        print("next called")
-       
-    }
     
     lazy var pagerContr: UIPageViewController = {
         let ugc = UIStoryboard.init(name: "Main", bundle: nil)
@@ -68,14 +57,7 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .whiteColor()
-        setCameraView()
-        self.view.bringSubviewToFront(next_Button)
-        self.next_Button.hidden = true;
-        //self.next_Button.layer.cornerRadius = 30
-        //self.next_Button.layer.borderColor = UIColor.whiteColor().CGColor
-        //self.next_Button.layer.borderWidth = 3
-        self.next_Button.backgroundColor = UIColor.clearColor()
-        
+        setCameraView()        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -169,8 +151,11 @@ class RecommendParentController: UIViewController, UIPageViewControllerDelegate,
         postImage = image
     }
     
-    func showNextButton() {
-        self.next_Button.hidden = false;
+    func goToNextPage(pageIndex: Int) {
+        let contr = viewControllerAtIndex(pageIndex)
+        if let contr = contr {
+            pagerContr.setViewControllers([contr], direction: .Forward, animated: true, completion: nil)
+        }
     }
     
     func pushNextButton(pageIndex: Int, text: String) {
