@@ -5,6 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Question View Controller-->
         <scene sceneID="IvR-8y-hAP">
@@ -27,33 +32,58 @@
                                 <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KJe-MJ-Nzi">
-                                <rect key="frame" x="20" y="114" width="560" height="466"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJe-MJ-Nzi">
+                                <rect key="frame" x="16" y="118" width="568" height="466"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VR-7c-zW3">
+                                <rect key="frame" x="20" y="125" width="560" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="QVN-ed-y9E"/>
+                                </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="&quot;&quot;">
+                                    <fragment content="Dolphin watching from the beach! It’s almost unbelievable to see them so close to to the shore.">
                                         <attributes>
-                                            <font key="NSFont" size="20" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <color key="NSColor" red="0.87843000000000004" green="0.87843000000000004" blue="0.87843000000000004" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="1" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="nq6-cK-X7A" firstAttribute="top" secondItem="KJe-MJ-Nzi" secondAttribute="bottom" constant="16" id="9Tn-6b-e3W"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KJe-MJ-Nzi" secondAttribute="trailing" id="CBX-mo-fRZ"/>
+                            <constraint firstItem="5VR-7c-zW3" firstAttribute="top" secondItem="PqP-yD-j15" secondAttribute="bottom" constant="19" id="DNq-0P-W5r"/>
+                            <constraint firstItem="5VR-7c-zW3" firstAttribute="leading" secondItem="6E6-l5-rBx" secondAttribute="leading" constant="20" id="FBz-tz-axW"/>
+                            <constraint firstAttribute="trailing" secondItem="KJe-MJ-Nzi" secondAttribute="trailing" constant="16" id="JnE-Ib-Wn3"/>
                             <constraint firstAttribute="leadingMargin" secondItem="KJe-MJ-Nzi" secondAttribute="leading" id="QOy-bT-XKS"/>
+                            <constraint firstAttribute="trailing" secondItem="5VR-7c-zW3" secondAttribute="trailing" constant="20" id="Rjs-b8-YsZ"/>
                             <constraint firstAttribute="trailing" secondItem="PqP-yD-j15" secondAttribute="trailing" constant="20" id="Vr9-qW-Dbw"/>
                             <constraint firstItem="PqP-yD-j15" firstAttribute="leading" secondItem="6E6-l5-rBx" secondAttribute="leading" constant="20" id="Xbo-T3-PBq"/>
+                            <constraint firstItem="KJe-MJ-Nzi" firstAttribute="top" secondItem="PqP-yD-j15" secondAttribute="bottom" constant="12" id="bVK-44-IsA"/>
                             <constraint firstItem="PqP-yD-j15" firstAttribute="top" secondItem="7kn-SB-HZM" secondAttribute="bottom" constant="50" id="dIg-CS-i0t"/>
+                            <constraint firstItem="KJe-MJ-Nzi" firstAttribute="leading" secondItem="6E6-l5-rBx" secondAttribute="leading" constant="16" id="lps-pa-jgn"/>
                             <constraint firstItem="nq6-cK-X7A" firstAttribute="top" secondItem="KJe-MJ-Nzi" secondAttribute="bottom" constant="20" id="tvd-T6-1et"/>
                             <constraint firstItem="KJe-MJ-Nzi" firstAttribute="top" secondItem="PqP-yD-j15" secondAttribute="bottom" constant="8" id="xsZ-cV-SnN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="CBX-mo-fRZ"/>
+                                <exclude reference="QOy-bT-XKS"/>
+                                <exclude reference="xsZ-cV-SnN"/>
+                                <exclude reference="tvd-T6-1et"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="answerTextView" destination="KJe-MJ-Nzi" id="QMe-Z3-c4Q"/>
+                        <outlet property="placeholderLabel" destination="5VR-7c-zW3" id="FER-o7-Qjx"/>
                         <outlet property="questionLabel" destination="PqP-yD-j15" id="2j1-Py-aLS"/>
                     </connections>
                 </viewController>

@@ -26,10 +26,11 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
         let sb = UIStoryboard.init(name: "Question", bundle: nil)
         let contr = sb.instantiateViewControllerWithIdentifier("QuestionViewController") as! QuestionViewController
         contr.view.backgroundColor = .whiteColor()
+        contr.answerTextView.text = self.answer1Text
         contr.questionLabel.text = "Q1. Share your experience"
         contr.delegate = self
-        contr.answerTextView.text = self.answer1Text
-        
+        contr.placeholderLabel.alpha = (self.answer1Text == nil) ? 1 : (self.answer1Text == "") ? 1 : 0
+
         return contr
     }()
     
@@ -40,6 +41,7 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
         contr.questionLabel.text = "Q2. Protip"
         contr.delegate = self
         contr.answerTextView.text = self.answer2Text
+        contr.placeholderLabel.alpha = (self.answer2Text == nil) ? 1 : (self.answer2Text == "") ? 1 : 0
 
         return contr
     }()
@@ -51,6 +53,7 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
         contr.questionLabel.text = "Q3. Best time to visit"
         contr.delegate = self
         contr.answerTextView.text = self.answer3Text
+        contr.placeholderLabel.alpha = (self.answer3Text == nil) ? 1 : (self.answer3Text == "") ? 1 : 0
 
         return contr
     }()
@@ -62,6 +65,7 @@ class QuestionParentViewController: UIViewController, UIPageViewControllerDelega
         contr.questionLabel.text = "Q4. Howdy!!"
         contr.delegate = self
         contr.answerTextView.text = self.answer4Text
+        contr.placeholderLabel.alpha = (self.answer4Text == nil) ? 1 : (self.answer4Text == "") ? 1 : 0
 
         return contr
     }()

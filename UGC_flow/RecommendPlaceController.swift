@@ -69,6 +69,7 @@ class RecommendPlaceController: UIViewController, UITextViewDelegate {
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         textView.textColor = UIColor.blackColor()
+        placeholderLabel.alpha = (textView.text == "") ? 1 : 0
         return true
     }
 
