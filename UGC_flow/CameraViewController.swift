@@ -126,7 +126,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func stopCapturingVideo() {
-        countdown = 0
         if let myTimer = myTimer {
             myTimer.invalidate()
         }
