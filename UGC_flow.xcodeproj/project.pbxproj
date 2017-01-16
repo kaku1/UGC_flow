@@ -18,6 +18,7 @@
 		A9D64CE51E1A422A00F67F04 /* UGC_flowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D64CE41E1A422A00F67F04 /* UGC_flowUITests.swift */; };
 		A9D64CF71E1A720D00F67F04 /* RecommendPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D64CF61E1A720D00F67F04 /* RecommendPlaceController.swift */; };
 		A9D64CF91E1A8AE300F67F04 /* GreatForViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D64CF81E1A8AE300F67F04 /* GreatForViewController.swift */; };
+		F154A2561E2CC41300EACDF1 /* DummyVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F154A2551E2CC41300EACDF1 /* DummyVideoView.swift */; };
 		F1A3FC191E1A57B80085371B /* CustomCameraOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A3FC181E1A57B80085371B /* CustomCameraOverlayView.swift */; };
 		F1A3FC1B1E1A57C30085371B /* CustomCameraOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A3FC1A1E1A57C30085371B /* CustomCameraOverlayView.xib */; };
 		F1A3FC1D1E1A59590085371B /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A3FC1C1E1A59590085371B /* CameraViewController.swift */; };
@@ -62,6 +63,7 @@
 		A9D64CE61E1A422A00F67F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9D64CF61E1A720D00F67F04 /* RecommendPlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendPlaceController.swift; sourceTree = "<group>"; };
 		A9D64CF81E1A8AE300F67F04 /* GreatForViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreatForViewController.swift; sourceTree = "<group>"; };
+		F154A2551E2CC41300EACDF1 /* DummyVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyVideoView.swift; sourceTree = "<group>"; };
 		F1A3FC181E1A57B80085371B /* CustomCameraOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCameraOverlayView.swift; sourceTree = "<group>"; };
 		F1A3FC1A1E1A57C30085371B /* CustomCameraOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCameraOverlayView.xib; sourceTree = "<group>"; };
 		F1A3FC1C1E1A59590085371B /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				F1F8A1B71E1B772D001D0E50 /* Question.Storyboard */,
 				F1F8A1B91E1B7858001D0E50 /* QuestionViewController.swift */,
 				F1F8A1BB1E1B795C001D0E50 /* QuestionParentViewController.swift */,
+				F154A2551E2CC41300EACDF1 /* DummyVideoView.swift */,
 			);
 			path = UGC_flow;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				F1A3FC251E1A6A5C0085371B /* RecommendParentController.swift in Sources */,
 				F1A3FC191E1A57B80085371B /* CustomCameraOverlayView.swift in Sources */,
 				A9D64CF71E1A720D00F67F04 /* RecommendPlaceController.swift in Sources */,
+				F154A2561E2CC41300EACDF1 /* DummyVideoView.swift in Sources */,
 				F1F8A1BC1E1B795C001D0E50 /* QuestionParentViewController.swift in Sources */,
 				A9D64CC21E1A422A00F67F04 /* AppDelegate.swift in Sources */,
 				A9C117241E1B7797007BA850 /* StickersViewController.swift in Sources */,

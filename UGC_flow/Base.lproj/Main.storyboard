@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -591,12 +590,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNe-om-8QZ">
-                                <rect key="frame" x="264" y="289" width="57" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Bl-Ln-q2Y">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -613,18 +606,15 @@
                                     <action selector="didTapCloseButton:" destination="AF9-XN-KqY" eventType="touchUpInside" id="umN-kK-W5O"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ifoundawesome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOA-QG-hKF">
-                                <rect key="frame" x="20" y="70" width="560" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqC-5h-gst">
                                 <rect key="frame" x="489" y="25" width="91" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="RETAKE">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.50166223404255317" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapRetakeButton:" destination="AF9-XN-KqY" eventType="touchUpInside" id="Ygk-OV-vIP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sv1-Ns-pYR">
                                 <rect key="frame" x="10" y="415" width="580" height="70"/>
@@ -638,32 +628,12 @@
                                     <action selector="toolTipButtonAction:" destination="AF9-XN-KqY" eventType="touchUpInside" id="N4c-8H-UEo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lnk-NM-byF">
-                                <rect key="frame" x="510" y="530" width="80" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="PxP-8x-cOX"/>
-                                    <constraint firstAttribute="height" constant="40" id="XAs-OZ-Mz7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="NEXT">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.69580765845070425" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapNextButton:" destination="AF9-XN-KqY" eventType="touchUpInside" id="QyK-6J-Ro1"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dqC-5h-gst" firstAttribute="centerX" secondItem="GCS-pO-WfP" secondAttribute="centerX" id="0So-y3-uXM"/>
-                            <constraint firstItem="rOA-QG-hKF" firstAttribute="centerY" secondItem="GCS-pO-WfP" secondAttribute="centerY" id="9pM-g0-wIp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Lnk-NM-byF" secondAttribute="trailing" constant="-10" id="9wg-Yd-ucA"/>
-                            <constraint firstItem="ylP-Kw-imZ" firstAttribute="top" secondItem="Lnk-NM-byF" secondAttribute="bottom" constant="30" id="AiU-Kp-SJs"/>
                             <constraint firstAttribute="trailing" secondItem="sv1-Ns-pYR" secondAttribute="trailing" constant="10" id="BKp-gq-wSZ"/>
                             <constraint firstItem="ylP-Kw-imZ" firstAttribute="top" secondItem="sv1-Ns-pYR" secondAttribute="bottom" constant="115" id="EOP-eB-572"/>
-                            <constraint firstItem="rOA-QG-hKF" firstAttribute="leading" secondItem="RZL-a1-lT0" secondAttribute="leading" constant="20" id="EP3-wf-gJh"/>
-                            <constraint firstItem="mNe-om-8QZ" firstAttribute="centerY" secondItem="RZL-a1-lT0" secondAttribute="centerY" id="QZb-yb-U81"/>
-                            <constraint firstItem="mNe-om-8QZ" firstAttribute="centerX" secondItem="RZL-a1-lT0" secondAttribute="centerX" id="RXI-NX-53z"/>
                             <constraint firstItem="sv1-Ns-pYR" firstAttribute="leading" secondItem="RZL-a1-lT0" secondAttribute="leading" constant="10" id="S01-YQ-vqZ"/>
                             <constraint firstItem="dqC-5h-gst" firstAttribute="centerY" secondItem="GCS-pO-WfP" secondAttribute="centerY" id="SiF-F3-rTb"/>
                             <constraint firstItem="GCS-pO-WfP" firstAttribute="top" secondItem="1gw-wT-Ky7" secondAttribute="bottom" id="Xbo-nd-kGk"/>
@@ -671,23 +641,19 @@
                             <constraint firstItem="GCS-pO-WfP" firstAttribute="leading" secondItem="RZL-a1-lT0" secondAttribute="leading" constant="20" id="cHT-u3-ion"/>
                             <constraint firstAttribute="trailing" secondItem="dqC-5h-gst" secondAttribute="trailing" constant="20" id="cQX-Do-3Xe"/>
                             <constraint firstItem="4Bl-Ln-q2Y" firstAttribute="leading" secondItem="RZL-a1-lT0" secondAttribute="leading" id="dVf-vL-9Kp"/>
-                            <constraint firstItem="rOA-QG-hKF" firstAttribute="top" secondItem="1gw-wT-Ky7" secondAttribute="bottom" constant="50" id="fKo-9X-CqJ"/>
                             <constraint firstItem="ylP-Kw-imZ" firstAttribute="top" secondItem="4Bl-Ln-q2Y" secondAttribute="bottom" id="hNC-d3-25h"/>
-                            <constraint firstAttribute="trailing" secondItem="rOA-QG-hKF" secondAttribute="trailing" constant="20" id="kbb-5Q-BmO"/>
                             <constraint firstItem="4Bl-Ln-q2Y" firstAttribute="top" secondItem="RZL-a1-lT0" secondAttribute="top" id="zpp-21-sth"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="9pM-g0-wIp"/>
                                 <exclude reference="0So-y3-uXM"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="GCS-pO-WfP" id="052-DY-Dhi"/>
-                        <outlet property="nextButton" destination="Lnk-NM-byF" id="bXr-bn-eOW"/>
                         <outlet property="previewImageView" destination="4Bl-Ln-q2Y" id="SVk-8b-KjW"/>
-                        <outlet property="titleLabel" destination="rOA-QG-hKF" id="xaB-fG-xQF"/>
+                        <outlet property="retakeButton" destination="dqC-5h-gst" id="4ub-Jd-vWo"/>
                         <outlet property="toolTipButton" destination="sv1-Ns-pYR" id="Jae-OE-kIX"/>
                     </connections>
                 </viewController>

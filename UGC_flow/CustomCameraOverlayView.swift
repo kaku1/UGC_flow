@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol CustomCameraOverlayViewDelegate: class {
     func takePic(sender: UIButton, view: CustomCameraOverlayView)
@@ -14,10 +15,10 @@ protocol CustomCameraOverlayViewDelegate: class {
 
 class CustomCameraOverlayView: UIView {
 
-    @IBOutlet weak var previewImageView: UIImageView!
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var takePicButton: UIButton!
     weak var delegate: CustomCameraOverlayViewDelegate?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         takePicButton.layer.masksToBounds = true
@@ -25,8 +26,7 @@ class CustomCameraOverlayView: UIView {
         takePicButton.layer.borderColor = UIColor.whiteColor().CGColor
         takePicButton.layer.borderWidth = 3
     }
-    
-    
+        
     @IBAction func didTapTakePicButton(sender: UIButton) {
         if let delegate = delegate {
             delegate.takePic(sender, view: self)
