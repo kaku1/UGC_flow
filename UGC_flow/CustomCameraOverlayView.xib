@@ -11,16 +11,28 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RB-it-1Xa">
-                    <rect key="frame" x="270" y="520" width="60" height="60"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qy5-L2-nQU">
+                    <rect key="frame" x="265" y="515" width="70" height="70"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RB-it-1Xa">
+                            <rect key="frame" x="5" y="5" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="AJn-am-nKM"/>
+                                <constraint firstAttribute="height" constant="60" id="gIz-vz-p35"/>
+                            </constraints>
+                            <connections>
+                                <action selector="didTapTakePicButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="m2y-3c-Qeg"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="60" id="AJn-am-nKM"/>
-                        <constraint firstAttribute="height" constant="60" id="gIz-vz-p35"/>
+                        <constraint firstAttribute="width" constant="70" id="MNJ-SY-U9V"/>
+                        <constraint firstItem="1RB-it-1Xa" firstAttribute="centerY" secondItem="Qy5-L2-nQU" secondAttribute="centerY" id="WGC-J4-8cH"/>
+                        <constraint firstItem="1RB-it-1Xa" firstAttribute="centerX" secondItem="Qy5-L2-nQU" secondAttribute="centerX" id="tgm-St-gaI"/>
+                        <constraint firstAttribute="height" constant="70" id="ztF-1g-Swi"/>
                     </constraints>
-                    <connections>
-                        <action selector="didTapTakePicButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="m2y-3c-Qeg"/>
-                    </connections>
-                </button>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0p-zN-Ted">
                     <rect key="frame" x="261" y="20" width="78" height="43"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.24845950704225353" colorSpace="calibratedRGB"/>
@@ -35,20 +47,23 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="1RB-it-1Xa" secondAttribute="bottom" constant="20" id="0Nz-i0-8GW"/>
-                <constraint firstItem="1RB-it-1Xa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1dx-U4-FeB"/>
                 <constraint firstItem="K0p-zN-Ted" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Del-hp-QXi"/>
+                <constraint firstItem="Qy5-L2-nQU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Lgp-P5-OrF"/>
+                <constraint firstAttribute="bottom" secondItem="Qy5-L2-nQU" secondAttribute="bottom" constant="15" id="U7D-Pr-LBz"/>
                 <constraint firstItem="K0p-zN-Ted" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="hOX-n2-5Ba"/>
+                <constraint firstAttribute="bottom" secondItem="Qy5-L2-nQU" secondAttribute="bottom" constant="20" id="jcL-c0-aFA"/>
                 <constraint firstItem="K0p-zN-Ted" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rVp-Ml-7Ec"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="Del-hp-QXi"/>
+                    <exclude reference="jcL-c0-aFA"/>
                 </mask>
             </variation>
             <connections>
                 <outlet property="takePicButton" destination="1RB-it-1Xa" id="iSk-fB-adJ"/>
                 <outlet property="timerLabel" destination="K0p-zN-Ted" id="Bsj-R0-JlQ"/>
+                <outlet property="timerView" destination="Qy5-L2-nQU" id="hyB-uj-i2h"/>
             </connections>
         </view>
     </objects>

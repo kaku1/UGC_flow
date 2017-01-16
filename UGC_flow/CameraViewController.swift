@@ -25,7 +25,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.toolTipButton.hidden = true;
     }
     
-    let avPlayer = AVPlayer()
+    var avPlayer = AVPlayer()
     var avPlayerLayer: AVPlayerLayer!
     
     var videoName = ""
@@ -33,7 +33,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     weak var delegate: CameraViewControllerDelegate?
     var pageIndex = 0
-    var countdown = 0
+    var countdown: CGFloat = 0
     var myTimer: NSTimer?
     
     var videoView: DummyVideoView?
@@ -94,6 +94,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func didTapRetakeButton(sender: UIButton) {
         removeVideoLayer()
         playButton?.alpha = 0
+        customCameraView.timerView.alpha = 1
         openPhoneCamera()
     }
     
@@ -113,13 +114,28 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     //MARK: CustomCameraOverlayViewDelegate
     
-    func takePic(sender: UIButton, view: CustomCameraOverlayView) {
+    func takePic(view: CustomCameraOverlayView) {
         countdown = 10
+        customCameraView.timerView.alpha = 1
+        customCameraView.startProgress()
         myTimer = NSTimer(timeInterval: 1.0, target: self, selector:#selector(CameraViewController.countDownTick), userInfo: nil, repeats: true)
         NSRunLoop.mainRunLoop().addTimer(myTimer!, forMode: NSDefaultRunLoopMode)
         customCameraView.timerLabel.text = "\(countdown)"
 
         imagePicker.startVideoCapture()
+    }
+    
+    func stopCapturingVideo() {
+        countdown = 0
+        if let myTimer = myTimer {
+            myTimer.invalidate()
+        }
+        myTimer = nil
+        imagePicker.stopVideoCapture()
+        customCameraView.timerView.alpha = 0
+//        customCameraView.stopProgress()
+        
+        customCameraView.timerLabel.text = "\(countdown)"
     }
     
     //MARK: UIImagePickerControllerDelegate
@@ -158,6 +174,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
             
             if let thumbnail = thumbnail {
+                previewImageView.alpha = 1
                 previewImageView.contentMode = .ScaleAspectFill
                 previewImageView.image = UIImage.init(CGImage: thumbnail)
             }
@@ -193,6 +210,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     func addVideoLayer() -> Void {
         retakeButton.alpha = 1
         playButton?.alpha = 1
+        customCameraView.timerView.alpha = 0
         
         avPlayerLayer = AVPlayerLayer(player: avPlayer)
         view.layer.insertSublayer(avPlayerLayer, atIndex: 0)
@@ -202,6 +220,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     func removeVideoLayer() -> Void {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: AVPlayerItemDidPlayToEndTimeNotification, object: avPlayer.currentItem)
         avPlayerLayer.removeFromSuperlayer()
+        avPlayerLayer = nil
     }
     
     func playerItemDidReachEnd(notification: NSNotification) {
@@ -265,11 +284,12 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func countDownTick() {
         countdown -= 1
-        
         if (countdown == 0) {
             myTimer!.invalidate()
             myTimer = nil
             imagePicker.stopVideoCapture()
+            customCameraView.timerView.alpha = 0
+            customCameraView.stopProgress()
         }
         
         customCameraView.timerLabel.text = "\(countdown)"
