@@ -142,11 +142,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UGC_flow/AVCameraCustomController.swift"
-            timestampString = "506506444.930777"
+            timestampString = "506511046.190142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "didTapCaptureButton(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -158,11 +158,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UGC_flow/AVCameraCustomController.swift"
-            timestampString = "506506557.130713"
+            timestampString = "506511046.190142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "didTapCaptureButton(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,15 +170,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UGC_flow/AVCameraCustomController.swift"
-            timestampString = "506506444.930777"
+            timestampString = "506511046.190142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "configureDevice()"
             landmarkType = "5">
          </BreakpointContent>

@@ -18,9 +18,13 @@ class AVCameraCustomController: UIViewController {
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
     var stillImageOutput: AVCaptureStillImageOutput?
+    var lastZoomFactor: CGFloat = 0
+    var currentZoomFactor: CGFloat = 0
 
     // If we find a device we'll store it here for later use
     var captureDevice : AVCaptureDevice?
+    
+    var pinchGest: UIPinchGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,9 @@ class AVCameraCustomController: UIViewController {
         captureButton.backgroundColor = UIColor.clearColor()
         captureButton.layer.borderColor = UIColor.whiteColor().CGColor
         captureButton.layer.borderWidth = 6
+        
+        pinchGest = UIPinchGestureRecognizer.init(target: self, action: #selector(AVCameraCustomController.didPinch(_:)))
+        self.view.addGestureRecognizer(pinchGest!)
         
         // Do any additional setup after loading the view, typically from a nib.
         stillImageOutput = AVCaptureStillImageOutput()
@@ -62,19 +69,31 @@ class AVCameraCustomController: UIViewController {
         
     }
     
-    func focusTo(value : Float) {
+    func focusTo(focusPoint : CGPoint) {
         if let device = captureDevice {
             do {
                 try device.lockForConfiguration()
-            } catch {
-                // handle error
-                return
+                device.focusPointOfInterest = focusPoint
+                device.focusMode = AVCaptureFocusMode.ContinuousAutoFocus
+                device.exposurePointOfInterest = focusPoint
+                device.exposureMode = AVCaptureExposureMode.ContinuousAutoExposure
+            } catch let error as NSError {
+                print(error.localizedDescription)
             }
-            
-            device.setFocusModeLockedWithLensPosition(value, completionHandler: { (time) -> Void in
-            })
-            device.unlockForConfiguration()
         }
+
+//        if let device = captureDevice {
+//            do {
+//                try device.lockForConfiguration()
+//            } catch {
+//                // handle error
+//                return
+//            }
+//            
+//            device.setFocusModeLockedWithLensPosition(value, completionHandler: { (time) -> Void in
+//            })
+//            device.unlockForConfiguration()
+//        }
     }
     
     let screenWidth = UIScreen.mainScreen().bounds.size.width
@@ -82,17 +101,17 @@ class AVCameraCustomController: UIViewController {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches , withEvent: event)
         let touch = touches.first
-        let touchPercent = touch!.locationInView(self.view).x / screenWidth
-//        focusTo(Float(touchPercent))
+        let touchPoint = touch!.locationInView(self.view)
+//        focusTo(touchPoint)
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesMoved(touches, withEvent: event)
         let touch = touches.first
-        let touchPercent = touch!.locationInView(self.view).x / screenWidth
-//        focusTo(Float(touchPercent))
+        let touchPoint = touch!.locationInView(self.view)
+//        focusTo(touchPoint)
     }
-    
+        
     func configureDevice() {
         if let device = captureDevice {
             if device.isFocusModeSupported(.ContinuousAutoFocus) {
@@ -121,7 +140,6 @@ class AVCameraCustomController: UIViewController {
     func beginSession() {
         
         configureDevice()
-        
         
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice)
@@ -158,8 +176,47 @@ class AVCameraCustomController: UIViewController {
                     self.captureSession.stopRunning()
                     self.previewLayer?.removeFromSuperlayer()
                     self.captureButton.alpha = 0
+                    self.view.removeGestureRecognizer(self.pinchGest!)
+                    self.lastZoomFactor = 0.0
+                    self.currentZoomFactor = 0.0
                 })
             })
+        }
+    }
+    
+    func didPinch(recognizer: UIPinchGestureRecognizer) -> Void {
+        if let device = self.captureDevice {
+            if recognizer.state == .Ended || recognizer.state == .Cancelled {
+                if recognizer.scale > 1 {
+                    lastZoomFactor += recognizer.scale
+                } else {
+                    lastZoomFactor = max(0, (lastZoomFactor - 1 + recognizer.scale))
+                }
+                print("recognizer ended \(recognizer.scale) lastZoomFactor \(lastZoomFactor)")
+            } else {
+                let vZoomFactor = ((recognizer).scale)
+                
+                if vZoomFactor > 1 {
+                    currentZoomFactor = lastZoomFactor + vZoomFactor
+                } else {
+                    currentZoomFactor = lastZoomFactor - 1 + vZoomFactor
+                }
+                print("vZoomFactor \(vZoomFactor) currentZoomFactor \(currentZoomFactor) lastZoomFactor \(lastZoomFactor)")
+                var error:NSError!
+                do{
+                    try device.lockForConfiguration()
+                    defer {device.unlockForConfiguration()}
+                    if (currentZoomFactor <= device.activeFormat.videoMaxZoomFactor){
+                        device.videoZoomFactor = max(1.0, currentZoomFactor)
+                    }else{
+                        print("Unable to set videoZoom: (max %f, asked %f)", device.activeFormat.videoMaxZoomFactor, currentZoomFactor)
+                    }
+                }catch error as NSError{
+                    print("Unable to set videoZoom: \(error.localizedDescription)");
+                }catch _{
+                    
+                }
+            }
         }
     }
     
