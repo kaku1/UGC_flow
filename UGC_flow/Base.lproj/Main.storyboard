@@ -30,12 +30,28 @@
                                     <segue destination="9Qd-zc-lqs" kind="presentation" id="JB9-em-OJG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3X-V3-Yap">
+                                <rect key="frame" x="0.0" y="473" width="600" height="52"/>
+                                <color key="backgroundColor" red="0.32549019610000002" green="0.76862745099999996" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Ngj-TC-ZvG"/>
+                                </constraints>
+                                <state key="normal" title="Custom Camera">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="IBt-kn-gMB" kind="presentation" id="Lu7-XK-gfr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="N37-hl-Wra" secondAttribute="trailing" id="6Hq-75-t1p"/>
+                            <constraint firstItem="T3X-V3-Yap" firstAttribute="leading" secondItem="fvv-EI-v8T" secondAttribute="leading" id="7UQ-UG-hNx"/>
                             <constraint firstItem="N37-hl-Wra" firstAttribute="leading" secondItem="fvv-EI-v8T" secondAttribute="leading" id="OpY-4H-ENc"/>
+                            <constraint firstAttribute="trailing" secondItem="T3X-V3-Yap" secondAttribute="trailing" id="QlR-KZ-V0R"/>
                             <constraint firstItem="drz-OS-D7S" firstAttribute="top" secondItem="N37-hl-Wra" secondAttribute="bottom" id="j9J-xQ-sHJ"/>
+                            <constraint firstItem="N37-hl-Wra" firstAttribute="top" secondItem="T3X-V3-Yap" secondAttribute="bottom" constant="25" id="l7q-kb-eK9"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -322,6 +338,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1157" y="1940"/>
+        </scene>
+        <!--Camera Custom Controller-->
+        <scene sceneID="9jI-ln-wFx">
+            <objects>
+                <viewController storyboardIdentifier="AVCameraCustomController" id="IBt-kn-gMB" customClass="AVCameraCustomController" customModule="UGC_flow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y5I-PI-6zx"/>
+                        <viewControllerLayoutGuide type="bottom" id="hwP-Om-kMi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sUb-qT-NDc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CD-PI-Ezb">
+                                <rect key="frame" x="0.0" y="0.0" width="86" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="4HV-Tm-tGy"/>
+                                    <constraint firstAttribute="width" constant="86" id="YTy-lR-UXn"/>
+                                </constraints>
+                                <state key="normal" title="close"/>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="IBt-kn-gMB" eventType="touchUpInside" id="SHs-Zk-thh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esZ-vs-1z8">
+                                <rect key="frame" x="270" y="520" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="MYB-wg-ipg"/>
+                                    <constraint firstAttribute="height" constant="60" id="zN5-3f-f58"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="didTapCaptureButton:" destination="IBt-kn-gMB" eventType="touchUpInside" id="z2l-ft-OoJ"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ISb-eJ-7kG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7CD-PI-Ezb" firstAttribute="leading" secondItem="sUb-qT-NDc" secondAttribute="leading" id="3WD-h8-Qu0"/>
+                            <constraint firstItem="hwP-Om-kMi" firstAttribute="top" secondItem="esZ-vs-1z8" secondAttribute="bottom" constant="20" id="El0-qA-tru"/>
+                            <constraint firstItem="7CD-PI-Ezb" firstAttribute="top" secondItem="sUb-qT-NDc" secondAttribute="top" id="R7C-jw-Q7b"/>
+                            <constraint firstItem="ISb-eJ-7kG" firstAttribute="leading" secondItem="sUb-qT-NDc" secondAttribute="leading" id="dS7-xw-oQR"/>
+                            <constraint firstAttribute="trailing" secondItem="ISb-eJ-7kG" secondAttribute="trailing" id="feu-Ae-hk6"/>
+                            <constraint firstItem="hwP-Om-kMi" firstAttribute="top" secondItem="ISb-eJ-7kG" secondAttribute="bottom" id="pch-YD-d56"/>
+                            <constraint firstItem="ISb-eJ-7kG" firstAttribute="top" secondItem="sUb-qT-NDc" secondAttribute="top" id="rSu-Xs-s5R"/>
+                            <constraint firstItem="esZ-vs-1z8" firstAttribute="centerX" secondItem="sUb-qT-NDc" secondAttribute="centerX" id="x0X-JN-Hve"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="captureButton" destination="esZ-vs-1z8" id="xHe-U2-mGj"/>
+                        <outlet property="capturedImageView" destination="ISb-eJ-7kG" id="dRP-L3-u1q"/>
+                        <outlet property="closeButton" destination="7CD-PI-Ezb" id="yMe-6o-6jA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Pu-pz-eaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1765" y="1937"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="aAV-jm-6Um">
